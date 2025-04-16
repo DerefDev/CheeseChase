@@ -29,7 +29,7 @@ namespace CheeseChase
         private void btnStart_Click(object sender, EventArgs e)
         {
             //controllo che la txtbox abbia dentro un nome e che la difficolta sia stata scelta
-            if (!String.IsNullOrEmpty(txtNome.Text) && !String.IsNullOrEmpty(cbDifficolta.Text))
+            if (!String.IsNullOrEmpty(txtNome.Text) && cbDifficolta.Items.Contains(cbDifficolta.Text))
             {
                 nome = txtNome.Text;
                 //switch per levite (difficile = 1, media = 2, facile = 3)
@@ -47,8 +47,14 @@ namespace CheeseChase
                         break;
                 }
 
-                formPartita(nome, vite).Show; //da fixa sta roba dio porco
-                this.Close();
+                //apro la form partita portando via nome e difficolta sotto forma di vite inserite dal menu start
+                formPartita partita = new formPartita(nome, vite);
+                //nascondo FormStart
+                this.Hide();
+                //quando formPartita si chiude, chiude anche FormStart
+                partita.FormClosed += (s, args) => this.Close(); 
+                //apro formPartita
+                partita.Show(); 
             }
             else
             {

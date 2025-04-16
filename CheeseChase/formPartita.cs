@@ -18,6 +18,7 @@ namespace CheeseChase
         public formPartita(string nome, int vite)
         {
             InitializeComponent();
+            //"importazione" variabili dalla form del menu di start
             viteG = vite;
             nomeG = nome;
         }
