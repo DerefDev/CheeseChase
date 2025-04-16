@@ -1,0 +1,48 @@
+name: Build & Release
+
+# A ogni push su main compila CheeseChase.exe dal codice sorgente e lo pubblica come release GitHub.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: microsoft/setup-msbuild@v2
+
+      # Il runner non include il targeting pack di .NET Framework 4.6.1: si usano gli assembly di riferimento ufficiali.
+      - name: Scarica assembly di riferimento .NET Framework 4.6.1
+        shell: pwsh
+        run: |
+          Invoke-WebRequest https://www.nuget.org/api/v2/package/Microsoft.NETFramework.ReferenceAssemblies.net461/1.0.3 -OutFile "$env:RUNNER_TEMP\refasm.zip"
+          Expand-Archive "$env:RUNNER_TEMP\refasm.zip" "$env:RUNNER_TEMP\refasm"
+
+      - name: Compila (Release)
+        shell: pwsh
+        run: msbuild CheeseChase.sln /nologo /m /v:m /p:Configuration=Release "/p:Platform=Any CPU" "/p:TargetFrameworkRootPath=$env:RUNNER_TEMP\refasm\build"
+
+      # Tag = versione all'inizio del titolo del commit (es. "v1.0.0: ..."), altrimenti build-<sha corto>.
+      - name: Scegli il tag della release
+        id: tag
+        shell: pwsh
+        env:
+          MSG: ${{ github.event.head_commit.message }}
+          SHA: ${{ github.sha }}
+        run: |
+          $subject = ($env:MSG -split "`n")[0]
+          if ($subject -match '^(v\d+(\.\d+){2,3})\b') { $tag = $Matches[1] } else { $tag = "build-" + $env:SHA.Substring(0, 7) }
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: CheeseChase ${{ steps.tag.outputs.tag }}
+          body: ${{ github.event.head_commit.message }}
+          files: CheeseChase/bin/Release/CheeseChase.exe

@@ -1,0 +1,8 @@
+# File temporanei di build e debug: non vanno mai caricati
+bin/
+obj/
+
+# Stato locale di Visual Studio
+.vs/
+*.user
+*.suo
