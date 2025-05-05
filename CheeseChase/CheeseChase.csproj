@@ -104,5 +104,44 @@
   <ItemGroup>
     <None Include="imgs\gioco_temporanee\pupetto1_temp.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\carneCruda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\carneCotta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\formaggio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\insalata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pomodoro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pilaCarneCruda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pilaFormaggio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pilaInsalata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pilaPane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pilaPomodoro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\pilaPomodoro%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\bottoneSerranda.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

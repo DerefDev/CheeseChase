@@ -22,11 +22,12 @@ namespace CheeseChase
 
     public partial class formPartita : Form
     {
+        
         //g sta per gioco per indicare che sono diverse da quelle passate dal menu start
         int viteG; 
         string nomeG;
         int secondi = 0;
-
+        int contaCarne = 1;
         int secondiCliente1;
 
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
@@ -36,12 +37,23 @@ namespace CheeseChase
 
         public formPartita(string nome, int vite)
         {
+           
+
             InitializeComponent();
             //"importazione" variabili dalla form del menu di start
             viteG = vite;
             nomeG = nome;
             lblVite.Text = viteG.ToString();
             lblNome.Text = nomeG;
+
+
+            pbCarneCotta1.Hide();
+            pbCarneCotta2.Hide();
+            pbCarneCotta3.Hide();
+
+            pbCarneCrudaGriglia1.Hide();
+            pbCarneCrudaGriglia2.Hide();
+            pbCarneCrudaGriglia3.Hide();
 
             //nascondo il cliente1
             pbCliente1.Hide();
@@ -67,7 +79,7 @@ namespace CheeseChase
         }
 
         //bottone per gestire la serranda
-        private void btnChiudi_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             //se è aperta la chiudo e viceversa
             if (serrandaAperta)
@@ -76,7 +88,7 @@ namespace CheeseChase
                 this.BackgroundImage = Properties.Resources.gioco_serrandaAperta;
 
             //cambio lo stato della serranda
-            serrandaAperta = !serrandaAperta;         
+            serrandaAperta = !serrandaAperta;
         }
 
         //timer che ticka ogni 1000ms
@@ -110,5 +122,40 @@ namespace CheeseChase
             }
         }
 
+        private async void pbPilaCarneCruda_Click(object sender, EventArgs e)
+        {
+            if (contaCarne == 1)
+            {
+                pbCarneCrudaGriglia1.Show();            //mostro la carne cruda sulla griglia
+                contaCarne++;                           //contatore di quanti pezzzi di carne sono sulla griglia, massimo 3 pezzi alla volta
+                await Task.Delay(5000);                 //delay di 5 secondi prima di passare dalla carne cruda a cotta
+                pbCarneCrudaGriglia1.Hide();            //l'immagine della carne cruda viene tolta e si ha quella cotta
+                pbCarneCotta1.Show();                   
+
+            }
+            else if (contaCarne == 2)
+            {
+                pbCarneCrudaGriglia2.Show();
+                contaCarne++;
+                await Task.Delay(5000);
+                pbCarneCrudaGriglia2.Hide();
+                pbCarneCotta2.Show();
+            }
+            else if (contaCarne == 3)
+            {
+                pbCarneCrudaGriglia3.Show();
+                contaCarne++;
+                await Task.Delay(5000);
+                pbCarneCrudaGriglia3.Hide();
+                pbCarneCotta3.Show();
+            }
+        }
+
+        
     }
 }
+
+
+
+
+            

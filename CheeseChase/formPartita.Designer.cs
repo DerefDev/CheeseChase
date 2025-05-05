@@ -30,28 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPartita));
-            this.btnChiudi = new System.Windows.Forms.Button();
             this.lblMenu1 = new System.Windows.Forms.Label();
             this.lblMenu2 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblVite = new System.Windows.Forms.Label();
             this.pbCliente1 = new System.Windows.Forms.PictureBox();
             this.scandisciSecondi = new System.Windows.Forms.Timer(this.components);
+            this.pbCarneCruda = new System.Windows.Forms.PictureBox();
+            this.pbPilaInsalata = new System.Windows.Forms.PictureBox();
+            this.pbCarneCotta1 = new System.Windows.Forms.PictureBox();
+            this.pbCarneCotta2 = new System.Windows.Forms.PictureBox();
+            this.pbCarneCotta3 = new System.Windows.Forms.PictureBox();
+            this.pbCarneCrudaGriglia1 = new System.Windows.Forms.PictureBox();
+            this.pbCarneCrudaGriglia2 = new System.Windows.Forms.PictureBox();
+            this.pbCarneCrudaGriglia3 = new System.Windows.Forms.PictureBox();
+            this.pbPilaFormaggio = new System.Windows.Forms.PictureBox();
+            this.pbPilaPomodoro = new System.Windows.Forms.PictureBox();
+            this.pbPilaPane = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCotta1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCotta2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCotta3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCrudaGriglia1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCrudaGriglia2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCrudaGriglia3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaFormaggio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaPomodoro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaPane)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnChiudi
-            // 
-            this.btnChiudi.BackColor = System.Drawing.Color.Maroon;
-            this.btnChiudi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChiudi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnChiudi.Location = new System.Drawing.Point(1319, 214);
-            this.btnChiudi.Name = "btnChiudi";
-            this.btnChiudi.Size = new System.Drawing.Size(147, 138);
-            this.btnChiudi.TabIndex = 0;
-            this.btnChiudi.Text = "SERRANDA";
-            this.btnChiudi.UseVisualStyleBackColor = false;
-            this.btnChiudi.Click += new System.EventHandler(this.btnChiudi_Click);
             // 
             // lblMenu1
             // 
@@ -116,34 +126,201 @@
             this.scandisciSecondi.Interval = 1000;
             this.scandisciSecondi.Tick += new System.EventHandler(this.scandisciSecondi_Tick);
             // 
+            // pbCarneCruda
+            // 
+            this.pbCarneCruda.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCruda.Image = global::CheeseChase.Properties.Resources.pilaCarneCruda;
+            this.pbCarneCruda.Location = new System.Drawing.Point(760, 616);
+            this.pbCarneCruda.Name = "pbCarneCruda";
+            this.pbCarneCruda.Size = new System.Drawing.Size(126, 127);
+            this.pbCarneCruda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCruda.TabIndex = 7;
+            this.pbCarneCruda.TabStop = false;
+            this.pbCarneCruda.Click += new System.EventHandler(this.pbPilaCarneCruda_Click);
+            // 
+            // pbPilaInsalata
+            // 
+            this.pbPilaInsalata.BackColor = System.Drawing.Color.Transparent;
+            this.pbPilaInsalata.Image = global::CheeseChase.Properties.Resources.pilaInsalata;
+            this.pbPilaInsalata.Location = new System.Drawing.Point(356, 603);
+            this.pbPilaInsalata.Name = "pbPilaInsalata";
+            this.pbPilaInsalata.Size = new System.Drawing.Size(131, 128);
+            this.pbPilaInsalata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPilaInsalata.TabIndex = 8;
+            this.pbPilaInsalata.TabStop = false;
+            // 
+            // pbCarneCotta1
+            // 
+            this.pbCarneCotta1.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCotta1.Image = global::CheeseChase.Properties.Resources.carneCotta;
+            this.pbCarneCotta1.Location = new System.Drawing.Point(1001, 578);
+            this.pbCarneCotta1.Name = "pbCarneCotta1";
+            this.pbCarneCotta1.Size = new System.Drawing.Size(77, 66);
+            this.pbCarneCotta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCotta1.TabIndex = 11;
+            this.pbCarneCotta1.TabStop = false;
+            // 
+            // pbCarneCotta2
+            // 
+            this.pbCarneCotta2.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCotta2.Image = global::CheeseChase.Properties.Resources.carneCotta;
+            this.pbCarneCotta2.Location = new System.Drawing.Point(1110, 578);
+            this.pbCarneCotta2.Name = "pbCarneCotta2";
+            this.pbCarneCotta2.Size = new System.Drawing.Size(77, 66);
+            this.pbCarneCotta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCotta2.TabIndex = 13;
+            this.pbCarneCotta2.TabStop = false;
+            // 
+            // pbCarneCotta3
+            // 
+            this.pbCarneCotta3.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCotta3.Image = global::CheeseChase.Properties.Resources.carneCotta;
+            this.pbCarneCotta3.Location = new System.Drawing.Point(1226, 578);
+            this.pbCarneCotta3.Name = "pbCarneCotta3";
+            this.pbCarneCotta3.Size = new System.Drawing.Size(77, 66);
+            this.pbCarneCotta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCotta3.TabIndex = 14;
+            this.pbCarneCotta3.TabStop = false;
+            // 
+            // pbCarneCrudaGriglia1
+            // 
+            this.pbCarneCrudaGriglia1.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCrudaGriglia1.Image = global::CheeseChase.Properties.Resources.carneCruda;
+            this.pbCarneCrudaGriglia1.Location = new System.Drawing.Point(1000, 578);
+            this.pbCarneCrudaGriglia1.Name = "pbCarneCrudaGriglia1";
+            this.pbCarneCrudaGriglia1.Size = new System.Drawing.Size(78, 65);
+            this.pbCarneCrudaGriglia1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCrudaGriglia1.TabIndex = 31;
+            this.pbCarneCrudaGriglia1.TabStop = false;
+            // 
+            // pbCarneCrudaGriglia2
+            // 
+            this.pbCarneCrudaGriglia2.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCrudaGriglia2.Image = global::CheeseChase.Properties.Resources.carneCruda;
+            this.pbCarneCrudaGriglia2.Location = new System.Drawing.Point(1109, 579);
+            this.pbCarneCrudaGriglia2.Name = "pbCarneCrudaGriglia2";
+            this.pbCarneCrudaGriglia2.Size = new System.Drawing.Size(78, 65);
+            this.pbCarneCrudaGriglia2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCrudaGriglia2.TabIndex = 32;
+            this.pbCarneCrudaGriglia2.TabStop = false;
+            // 
+            // pbCarneCrudaGriglia3
+            // 
+            this.pbCarneCrudaGriglia3.BackColor = System.Drawing.Color.Transparent;
+            this.pbCarneCrudaGriglia3.Image = global::CheeseChase.Properties.Resources.carneCruda;
+            this.pbCarneCrudaGriglia3.Location = new System.Drawing.Point(1225, 578);
+            this.pbCarneCrudaGriglia3.Name = "pbCarneCrudaGriglia3";
+            this.pbCarneCrudaGriglia3.Size = new System.Drawing.Size(78, 65);
+            this.pbCarneCrudaGriglia3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCarneCrudaGriglia3.TabIndex = 33;
+            this.pbCarneCrudaGriglia3.TabStop = false;
+            // 
+            // pbPilaFormaggio
+            // 
+            this.pbPilaFormaggio.BackColor = System.Drawing.Color.Transparent;
+            this.pbPilaFormaggio.Image = global::CheeseChase.Properties.Resources.pilaFormaggio;
+            this.pbPilaFormaggio.Location = new System.Drawing.Point(554, 616);
+            this.pbPilaFormaggio.Name = "pbPilaFormaggio";
+            this.pbPilaFormaggio.Size = new System.Drawing.Size(147, 115);
+            this.pbPilaFormaggio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPilaFormaggio.TabIndex = 34;
+            this.pbPilaFormaggio.TabStop = false;
+            // 
+            // pbPilaPomodoro
+            // 
+            this.pbPilaPomodoro.BackColor = System.Drawing.Color.Transparent;
+            this.pbPilaPomodoro.Image = global::CheeseChase.Properties.Resources.pilaPomodoro_1_;
+            this.pbPilaPomodoro.Location = new System.Drawing.Point(122, 616);
+            this.pbPilaPomodoro.Name = "pbPilaPomodoro";
+            this.pbPilaPomodoro.Size = new System.Drawing.Size(172, 128);
+            this.pbPilaPomodoro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPilaPomodoro.TabIndex = 35;
+            this.pbPilaPomodoro.TabStop = false;
+            // 
+            // pbPilaPane
+            // 
+            this.pbPilaPane.BackColor = System.Drawing.Color.Transparent;
+            this.pbPilaPane.Image = global::CheeseChase.Properties.Resources.pilaPane;
+            this.pbPilaPane.Location = new System.Drawing.Point(-17, 427);
+            this.pbPilaPane.Name = "pbPilaPane";
+            this.pbPilaPane.Size = new System.Drawing.Size(155, 119);
+            this.pbPilaPane.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPilaPane.TabIndex = 36;
+            this.pbPilaPane.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::CheeseChase.Properties.Resources.bottoneSerranda;
+            this.pictureBox1.Location = new System.Drawing.Point(1344, 267);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // formPartita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbPilaPane);
+            this.Controls.Add(this.pbPilaPomodoro);
+            this.Controls.Add(this.pbPilaFormaggio);
+            this.Controls.Add(this.pbCarneCrudaGriglia3);
+            this.Controls.Add(this.pbCarneCrudaGriglia2);
+            this.Controls.Add(this.pbCarneCrudaGriglia1);
+            this.Controls.Add(this.pbCarneCotta3);
+            this.Controls.Add(this.pbCarneCotta2);
+            this.Controls.Add(this.pbCarneCotta1);
+            this.Controls.Add(this.pbPilaInsalata);
             this.Controls.Add(this.pbCliente1);
             this.Controls.Add(this.lblVite);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.lblMenu2);
             this.Controls.Add(this.lblMenu1);
-            this.Controls.Add(this.btnChiudi);
+            this.Controls.Add(this.pbCarneCruda);
             this.Name = "formPartita";
             this.Text = "CheesChase";
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCotta1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCotta2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCotta3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCrudaGriglia1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCrudaGriglia2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarneCrudaGriglia3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaFormaggio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaPomodoro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPilaPane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnChiudi;
         private System.Windows.Forms.Label lblMenu1;
         private System.Windows.Forms.Label lblMenu2;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblVite;
         private System.Windows.Forms.PictureBox pbCliente1;
         private System.Windows.Forms.Timer scandisciSecondi;
+        private System.Windows.Forms.PictureBox pbCarneCruda;
+        private System.Windows.Forms.PictureBox pbPilaInsalata;
+        private System.Windows.Forms.PictureBox pbCarneCotta1;
+        private System.Windows.Forms.PictureBox pbCarneCotta2;
+        private System.Windows.Forms.PictureBox pbCarneCotta3;
+        private System.Windows.Forms.PictureBox pbCarneCrudaGriglia1;
+        private System.Windows.Forms.PictureBox pbCarneCrudaGriglia2;
+        private System.Windows.Forms.PictureBox pbCarneCrudaGriglia3;
+        private System.Windows.Forms.PictureBox pbPilaFormaggio;
+        private System.Windows.Forms.PictureBox pbPilaPomodoro;
+        private System.Windows.Forms.PictureBox pbPilaPane;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
