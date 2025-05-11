@@ -122,33 +122,47 @@ namespace CheeseChase
             }
         }
 
-        private async void pbPilaCarneCruda_Click(object sender, EventArgs e)
-        {
-            if (contaCarne == 1)
-            {
-                pbCarneCrudaGriglia1.Show();            //mostro la carne cruda sulla griglia
-                contaCarne++;                           //contatore di quanti pezzzi di carne sono sulla griglia, massimo 3 pezzi alla volta
-                await Task.Delay(5000);                 //delay di 5 secondi prima di passare dalla carne cruda a cotta
-                pbCarneCrudaGriglia1.Hide();            //l'immagine della carne cruda viene tolta e si ha quella cotta
-                pbCarneCotta1.Show();                   
 
-            }
-            else if (contaCarne == 2)
+
+        // Metodo asincrono che gestisce l'aggiunta di carne cruda sulla griglia al clic del giocatore.
+        // In base al numero di pezzi già presenti, mostra la carne cruda in una delle tre posizioni disponibili.
+        // Dopo aver posizionato la carne, attende 5 secondi per simulare il tempo di cottura.
+        // La parola chiave "async" consente di eseguire operazioni asincrone, come "await Task.Delay",
+        // senza bloccare il thread principale (UI thread). In questo modo l'interfaccia utente rimane fluida e reattiva
+        // durante l'attesa, permettendo ad esempio ai clienti di continuare ad arrivare o ad altri eventi di verificarsi.
+        private async void pbPilaCarneCruda_Click(object sender, EventArgs e)       
+        {
+            switch (contaCarne)
             {
-                pbCarneCrudaGriglia2.Show();
-                contaCarne++;
-                await Task.Delay(5000);
-                pbCarneCrudaGriglia2.Hide();
-                pbCarneCotta2.Show();
+                case 1:
+                    pbCarneCrudaGriglia1.Show();            //mostro la carne cruda sulla griglia
+                    contaCarne++;                           //contatore di quanti pezzzi di carne sono sulla griglia, massimo 3 pezzi alla volta
+                    await Task.Delay(5000);                 //delay di 5 secondi prima di passare dalla carne cruda a cotta
+                    pbCarneCrudaGriglia1.Hide();            //l'immagine della carne cruda viene tolta e si ha quella cotta
+                    pbCarneCotta1.Show();
+                    break;
+
+                case 2:
+                    pbCarneCrudaGriglia2.Show();
+                    contaCarne++;
+                    await Task.Delay(5000);
+                    pbCarneCrudaGriglia2.Hide();
+                    pbCarneCotta2.Show();
+                    break;
+
+                case 3:
+                    pbCarneCrudaGriglia3.Show();
+                    contaCarne++;
+                    await Task.Delay(5000);
+                    pbCarneCrudaGriglia3.Hide();
+                    pbCarneCotta3.Show();
+                    break;
+
+                default:
+                    //si possono aggiungere massimo 3 pezzi di carne alla griglia, lo stesso numero di clienti che possono essere presenti contemporaneamente al bancone
+                    break;
             }
-            else if (contaCarne == 3)
-            {
-                pbCarneCrudaGriglia3.Show();
-                contaCarne++;
-                await Task.Delay(5000);
-                pbCarneCrudaGriglia3.Hide();
-                pbCarneCotta3.Show();
-            }
+            
         }
 
         
