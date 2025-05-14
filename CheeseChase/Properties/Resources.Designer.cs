@@ -243,6 +243,26 @@ namespace CheeseChase.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SelezionaIngredienti {
+            get {
+                object obj = ResourceManager.GetObject("SelezionaIngredienti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SelezionaIngredienti1 {
+            get {
+                object obj = ResourceManager.GetObject("SelezionaIngredienti1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap start_sfondo {
             get {
                 object obj = ResourceManager.GetObject("start_sfondo", resourceCulture);

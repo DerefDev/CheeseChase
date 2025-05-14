@@ -29,6 +29,8 @@ namespace CheeseChase
         int secondi = 0;
         int contaCarne = 1;
         int secondiCliente1;
+        int contaPane = 1;
+        int contaInsalata = 0;
 
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
 
@@ -45,8 +47,8 @@ namespace CheeseChase
             nomeG = nome;
             lblVite.Text = viteG.ToString();
             lblNome.Text = nomeG;
-
-
+            
+            //nascondo le label che non servono all'inizio
             pbCarneCotta1.Hide();
             pbCarneCotta2.Hide();
             pbCarneCotta3.Hide();
@@ -165,7 +167,10 @@ namespace CheeseChase
             
         }
 
-        
+        private void pbPilaPane_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

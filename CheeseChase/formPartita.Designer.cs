@@ -48,6 +48,8 @@
             this.pbPilaPomodoro = new System.Windows.Forms.PictureBox();
             this.pbPilaPane = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPaninoCorrente1 = new System.Windows.Forms.Label();
+            this.pbCliente2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
@@ -61,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPomodoro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenu1
@@ -114,9 +117,9 @@
             // pbCliente1
             // 
             this.pbCliente1.Image = ((System.Drawing.Image)(resources.GetObject("pbCliente1.Image")));
-            this.pbCliente1.Location = new System.Drawing.Point(255, 196);
+            this.pbCliente1.Location = new System.Drawing.Point(413, 196);
             this.pbCliente1.Name = "pbCliente1";
-            this.pbCliente1.Size = new System.Drawing.Size(310, 262);
+            this.pbCliente1.Size = new System.Drawing.Size(227, 262);
             this.pbCliente1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCliente1.TabIndex = 5;
             this.pbCliente1.TabStop = false;
@@ -247,6 +250,7 @@
             this.pbPilaPane.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaPane.TabIndex = 36;
             this.pbPilaPane.TabStop = false;
+            this.pbPilaPane.Click += new System.EventHandler(this.pbPilaPane_Click);
             // 
             // pictureBox1
             // 
@@ -260,12 +264,36 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // lblPaninoCorrente1
+            // 
+            this.lblPaninoCorrente1.AutoSize = true;
+            this.lblPaninoCorrente1.BackColor = System.Drawing.Color.Transparent;
+            this.lblPaninoCorrente1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaninoCorrente1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPaninoCorrente1.Location = new System.Drawing.Point(201, 495);
+            this.lblPaninoCorrente1.Name = "lblPaninoCorrente1";
+            this.lblPaninoCorrente1.Size = new System.Drawing.Size(170, 26);
+            this.lblPaninoCorrente1.TabIndex = 57;
+            this.lblPaninoCorrente1.Text = "Panino Corrente";
+            // 
+            // pbCliente2
+            // 
+            this.pbCliente2.Image = ((System.Drawing.Image)(resources.GetObject("pbCliente2.Image")));
+            this.pbCliente2.Location = new System.Drawing.Point(708, 196);
+            this.pbCliente2.Name = "pbCliente2";
+            this.pbCliente2.Size = new System.Drawing.Size(227, 262);
+            this.pbCliente2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCliente2.TabIndex = 58;
+            this.pbCliente2.TabStop = false;
+            // 
             // formPartita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.pbCliente2);
+            this.Controls.Add(this.lblPaninoCorrente1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbPilaPane);
             this.Controls.Add(this.pbPilaPomodoro);
@@ -298,6 +326,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPomodoro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPane)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +351,7 @@
         private System.Windows.Forms.PictureBox pbPilaPomodoro;
         private System.Windows.Forms.PictureBox pbPilaPane;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblPaninoCorrente1;
+        private System.Windows.Forms.PictureBox pbCliente2;
     }
 }
