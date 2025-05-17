@@ -31,8 +31,10 @@ namespace CheeseChase
         int secondiCliente1;
         int contaPane = 1;
         int contaInsalata = 0;
+        int secondiCliente2;
 
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
+        statoCliente statoCliente2 = statoCliente.INVISIBIE;
 
         //variabile che contiene lo stato della serranda: true significa che è aperta 
         bool serrandaAperta = true;
@@ -57,10 +59,17 @@ namespace CheeseChase
             pbCarneCrudaGriglia2.Hide();
             pbCarneCrudaGriglia3.Hide();
 
-            //nascondo il cliente1
+            pbPaninoCorrente.Hide();
+            pbPaninoCorrenteSopra.Hide();
+
+            //nascondo i clienti 
             pbCliente1.Hide();
-            statoCliente1 = statoCliente.INVISIBIE;
             secondiCliente1 = 0; //contiene i secondi che aspetta il cliente 1, sopra a 15 si arrabbia e a 30 va via e perde una vita il giocatore
+
+            pbCliente2.Hide();
+            secondiCliente2 = 0;
+
+
 
             //avvia il timer che ticka ogni 1000ms
             scandisciSecondi.Enabled = true;
@@ -102,11 +111,25 @@ namespace CheeseChase
                            //eventualmente fa arrivare un cliente
                 if (secondi % 5 == 0)
                 {
-                    if (statoCliente1 == statoCliente.INVISIBIE)
+
+                    Random R = new Random();
+                    int numeroCasualePerGenerareCliente = R.Next(1, 99999);
+
+                    //se è un numero pari e non c'è nessun cliente mostro il 1, altrimenti il 2
+                    if (statoCliente1 == statoCliente.INVISIBIE && statoCliente2 == statoCliente.INVISIBIE)
                     {
-                        statoCliente1 = statoCliente.ATTIVO;
-                        pbCliente1.Show();
-                        //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente1
+                        if (numeroCasualePerGenerareCliente % 2 == 0)
+                        {
+                            statoCliente1 = statoCliente.ATTIVO;
+                            pbCliente1.Show();
+                            //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente1
+                        }
+                        else
+                        {
+                            statoCliente2 = statoCliente.ATTIVO;
+                            pbCliente2.Show();
+                            //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente2
+                        }
                     }
                 }
 
@@ -114,11 +137,39 @@ namespace CheeseChase
                 {
                     //aumenta i secondi e controlla se è arrabbiato o se ne va
                     secondiCliente1++;
-                    if (secondiCliente1 == 15)
+                    if (secondiCliente1 >= 10)
+                    {
+                        //braca si arrabbia
                         statoCliente1 = statoCliente.ARRABBIATO;
+                        pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaArrabbiato;
+                    } else if (secondiCliente1 >= 15)
+                    {
+                        //braca si incazza tantissimo
+                        pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
+                    }
+                    else
+                    {
+                        //braca è tranquillo se non sono passati tutti sti secondi
+                        pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaTranquillo;
+                    }
 
                     if (secondiCliente1 == 30) { }
                         //si incazza troppo e quindi se ne va (da fare)
+
+                }
+
+                if (statoCliente2 == statoCliente.ATTIVO)
+                {
+                    //aumenta i secondi e controlla se è arrabbiato o se ne va
+                    secondiCliente2++;
+                    if (secondiCliente2 == 15)
+                    {
+                        statoCliente2 = statoCliente.ARRABBIATO;
+                        pbCliente1.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
+                    }
+
+                    if (secondiCliente2 == 30) { }
+                    //si incazza troppo e quindi se ne va (da fare)
 
                 }
             }
@@ -169,12 +220,56 @@ namespace CheeseChase
 
         private void pbPilaPane_Click(object sender, EventArgs e)
         {
+            //mostra il pane
+            pbPaninoCorrente.Show();
+            pbPaninoCorrenteSopra.Show();
+        }
+
+        private void pbCestino_Click(object sender, EventArgs e)
+        {
+            //cancella il panino corrente 
+        }
+
+        private void pbPaninoCorrente_Click(object sender, EventArgs e)
+        {
 
         }
+
+        private void pbPaninoCorrenteSopra_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbBottoneSerranda_Click(object sender, EventArgs e)
+        {
+            //se è aperta la chiudo e viceversa
+            if (serrandaAperta)
+            {
+                //mette la pic della serranda chiusa
+                this.BackgroundImage = Properties.Resources.gioco_serrandaChiusa;
+               
+                //se ci sono clienti li nasconde 
+                if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+                    pbCliente1.Hide();
+
+                if (statoCliente2 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+                    pbCliente2.Hide();
+
+                //resetta la dinamica dei clienti 
+                statoCliente1 = statoCliente.INVISIBIE;
+                statoCliente2 = statoCliente.INVISIBIE;
+                secondiCliente1 = 0;
+                secondiCliente2 = 0;
+
+            }
+            else
+            {
+                //apre la serranda 
+                this.BackgroundImage = Properties.Resources.gioco_serrandaAperta;
+            }
+
+            //cambio lo stato della serranda
+            serrandaAperta = !serrandaAperta;
+        }
     }
-}
-
-
-
-
-            
+}           

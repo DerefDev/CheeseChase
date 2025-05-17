@@ -146,5 +146,92 @@
   <ItemGroup>
     <None Include="imgs\gioco\SelezionaIngredienti.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoCompletoFC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoCompletoFCP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoCompletoIFC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoCompletoIFCP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoCP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoFC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoFCP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoFP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoIC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoICP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoIF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoIFC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoIFCP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoIP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\SopraPane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\SottoPane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Clienti\Cliente1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Clienti\Cliente2Arrabbiato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Clienti\Cliente2Tranquillo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Clienti\ClienteBracaArrabbiato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Clienti\ClienteBracaFurioso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Clienti\ClienteBracaTranquillo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Polizia\MacchinaPolizia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Polizia\Poliziotto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\cestino.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

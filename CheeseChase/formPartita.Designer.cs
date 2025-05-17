@@ -47,9 +47,13 @@
             this.pbPilaFormaggio = new System.Windows.Forms.PictureBox();
             this.pbPilaPomodoro = new System.Windows.Forms.PictureBox();
             this.pbPilaPane = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbBottoneSerranda = new System.Windows.Forms.PictureBox();
             this.lblPaninoCorrente1 = new System.Windows.Forms.Label();
             this.pbCliente2 = new System.Windows.Forms.PictureBox();
+            this.pbPaninoCorrente = new System.Windows.Forms.PictureBox();
+            this.pbPaninoCorrenteSopra = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbCestino = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
@@ -62,8 +66,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaFormaggio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPomodoro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPane)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBottoneSerranda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrenteSopra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenu1
@@ -116,11 +124,12 @@
             // 
             // pbCliente1
             // 
-            this.pbCliente1.Image = ((System.Drawing.Image)(resources.GetObject("pbCliente1.Image")));
-            this.pbCliente1.Location = new System.Drawing.Point(413, 196);
+            this.pbCliente1.BackColor = System.Drawing.Color.Transparent;
+            this.pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaTranquillo;
+            this.pbCliente1.Location = new System.Drawing.Point(491, 196);
             this.pbCliente1.Name = "pbCliente1";
             this.pbCliente1.Size = new System.Drawing.Size(227, 262);
-            this.pbCliente1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCliente1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCliente1.TabIndex = 5;
             this.pbCliente1.TabStop = false;
             // 
@@ -252,17 +261,17 @@
             this.pbPilaPane.TabStop = false;
             this.pbPilaPane.Click += new System.EventHandler(this.pbPilaPane_Click);
             // 
-            // pictureBox1
+            // pbBottoneSerranda
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::CheeseChase.Properties.Resources.bottoneSerranda;
-            this.pictureBox1.Location = new System.Drawing.Point(1344, 267);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(101, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbBottoneSerranda.BackColor = System.Drawing.Color.Transparent;
+            this.pbBottoneSerranda.Image = global::CheeseChase.Properties.Resources.bottoneSerranda;
+            this.pbBottoneSerranda.Location = new System.Drawing.Point(1344, 267);
+            this.pbBottoneSerranda.Name = "pbBottoneSerranda";
+            this.pbBottoneSerranda.Size = new System.Drawing.Size(101, 89);
+            this.pbBottoneSerranda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBottoneSerranda.TabIndex = 37;
+            this.pbBottoneSerranda.TabStop = false;
+            this.pbBottoneSerranda.Click += new System.EventHandler(this.pbBottoneSerranda_Click);
             // 
             // lblPaninoCorrente1
             // 
@@ -270,7 +279,7 @@
             this.lblPaninoCorrente1.BackColor = System.Drawing.Color.Transparent;
             this.lblPaninoCorrente1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaninoCorrente1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPaninoCorrente1.Location = new System.Drawing.Point(201, 495);
+            this.lblPaninoCorrente1.Location = new System.Drawing.Point(247, 495);
             this.lblPaninoCorrente1.Name = "lblPaninoCorrente1";
             this.lblPaninoCorrente1.Size = new System.Drawing.Size(170, 26);
             this.lblPaninoCorrente1.TabIndex = 57;
@@ -278,13 +287,58 @@
             // 
             // pbCliente2
             // 
-            this.pbCliente2.Image = ((System.Drawing.Image)(resources.GetObject("pbCliente2.Image")));
-            this.pbCliente2.Location = new System.Drawing.Point(708, 196);
+            this.pbCliente2.BackColor = System.Drawing.Color.Transparent;
+            this.pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Tranquillo;
+            this.pbCliente2.Location = new System.Drawing.Point(784, 196);
             this.pbCliente2.Name = "pbCliente2";
             this.pbCliente2.Size = new System.Drawing.Size(227, 262);
-            this.pbCliente2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCliente2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCliente2.TabIndex = 58;
             this.pbCliente2.TabStop = false;
+            // 
+            // pbPaninoCorrente
+            // 
+            this.pbPaninoCorrente.BackColor = System.Drawing.Color.Transparent;
+            this.pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
+            this.pbPaninoCorrente.Location = new System.Drawing.Point(206, 427);
+            this.pbPaninoCorrente.Name = "pbPaninoCorrente";
+            this.pbPaninoCorrente.Size = new System.Drawing.Size(131, 65);
+            this.pbPaninoCorrente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPaninoCorrente.TabIndex = 59;
+            this.pbPaninoCorrente.TabStop = false;
+            this.pbPaninoCorrente.Click += new System.EventHandler(this.pbPaninoCorrente_Click);
+            // 
+            // pbPaninoCorrenteSopra
+            // 
+            this.pbPaninoCorrenteSopra.BackColor = System.Drawing.Color.Transparent;
+            this.pbPaninoCorrenteSopra.Image = global::CheeseChase.Properties.Resources.SopraPane;
+            this.pbPaninoCorrenteSopra.Location = new System.Drawing.Point(340, 427);
+            this.pbPaninoCorrenteSopra.Name = "pbPaninoCorrenteSopra";
+            this.pbPaninoCorrenteSopra.Size = new System.Drawing.Size(131, 65);
+            this.pbPaninoCorrenteSopra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPaninoCorrenteSopra.TabIndex = 60;
+            this.pbPaninoCorrenteSopra.TabStop = false;
+            this.pbPaninoCorrenteSopra.Click += new System.EventHandler(this.pbPaninoCorrenteSopra_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(-23, -46);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 61;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pbCestino
+            // 
+            this.pbCestino.BackColor = System.Drawing.Color.Transparent;
+            this.pbCestino.Image = global::CheeseChase.Properties.Resources.cestino;
+            this.pbCestino.Location = new System.Drawing.Point(-17, 820);
+            this.pbCestino.Name = "pbCestino";
+            this.pbCestino.Size = new System.Drawing.Size(185, 169);
+            this.pbCestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCestino.TabIndex = 62;
+            this.pbCestino.TabStop = false;
+            this.pbCestino.Click += new System.EventHandler(this.pbCestino_Click);
             // 
             // formPartita
             // 
@@ -292,9 +346,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.pbCestino);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbPaninoCorrenteSopra);
+            this.Controls.Add(this.pbPaninoCorrente);
             this.Controls.Add(this.pbCliente2);
             this.Controls.Add(this.lblPaninoCorrente1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbBottoneSerranda);
             this.Controls.Add(this.pbPilaPane);
             this.Controls.Add(this.pbPilaPomodoro);
             this.Controls.Add(this.pbPilaFormaggio);
@@ -311,6 +369,7 @@
             this.Controls.Add(this.lblMenu2);
             this.Controls.Add(this.lblMenu1);
             this.Controls.Add(this.pbCarneCruda);
+            this.DoubleBuffered = true;
             this.Name = "formPartita";
             this.Text = "CheesChase";
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).EndInit();
@@ -325,8 +384,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaFormaggio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPomodoro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaPane)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBottoneSerranda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrenteSopra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,8 +413,12 @@
         private System.Windows.Forms.PictureBox pbPilaFormaggio;
         private System.Windows.Forms.PictureBox pbPilaPomodoro;
         private System.Windows.Forms.PictureBox pbPilaPane;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbBottoneSerranda;
         private System.Windows.Forms.Label lblPaninoCorrente1;
         private System.Windows.Forms.PictureBox pbCliente2;
+        private System.Windows.Forms.PictureBox pbPaninoCorrente;
+        private System.Windows.Forms.PictureBox pbPaninoCorrenteSopra;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbCestino;
     }
 }
