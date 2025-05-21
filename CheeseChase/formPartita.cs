@@ -133,25 +133,25 @@ namespace CheeseChase
                     }
                 }
 
-                if (statoCliente1 == statoCliente.ATTIVO)
+                if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
                 {
                     //aumenta i secondi e controlla se è arrabbiato o se ne va
                     secondiCliente1++;
-                    if (secondiCliente1 >= 10)
+                    MessageBox.Show(secondiCliente1.ToString()); //test
+                    if (secondiCliente1 >= 10 && statoCliente1 == statoCliente.ATTIVO)
                     {
                         //braca si arrabbia
                         statoCliente1 = statoCliente.ARRABBIATO;
                         pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaArrabbiato;
-                    } else if (secondiCliente1 >= 15)
+                    }
+                    if (secondiCliente1 >= 15 && statoCliente1 == statoCliente.ARRABBIATO)
                     {
+                        MessageBox.Show("incazzatissimo"); //test
                         //braca si incazza tantissimo
                         pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
                     }
-                    else
-                    {
-                        //braca è tranquillo se non sono passati tutti sti secondi
-                        pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaTranquillo;
-                    }
+                    //da finire
+
 
                     if (secondiCliente1 == 30) { }
                         //si incazza troppo e quindi se ne va (da fare)
