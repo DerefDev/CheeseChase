@@ -19,10 +19,20 @@ namespace CheeseChase
         FATTO //quando l'ordine è stato completato
     }
 
-
     public partial class formPartita : Form
     {
-        
+        //array per gli ingredienti del panino
+        //4 sono gli ingredienti
+        bool[] paninoPrep = new bool[4];
+        //array che contiene la richiesta del cliente
+        bool[] paninoReq = new bool[4];
+
+        //didascalia:
+        //pos 0: carne cotta
+        //pos 1: formaggio
+        //pos 2: pomodori
+        //pos 3: insalata
+
         //g sta per gioco per indicare che sono diverse da quelle passate dal menu start
         int viteG; 
         string nomeG;
@@ -41,8 +51,6 @@ namespace CheeseChase
 
         public formPartita(string nome, int vite)
         {
-           
-
             InitializeComponent();
             //"importazione" variabili dalla form del menu di start
             viteG = vite;
@@ -69,8 +77,6 @@ namespace CheeseChase
             pbCliente2.Hide();
             secondiCliente2 = 0;
 
-
-
             //avvia il timer che ticka ogni 1000ms
             scandisciSecondi.Enabled = true;
         }
@@ -82,6 +88,57 @@ namespace CheeseChase
             if (viteG < 1)
                 terminaPartita();
         }
+
+        private void generaOrdine()
+        {
+            //genera un random per i casi del panino
+            Random R = new Random();
+            int random = R.Next(1, 4);
+
+            //in base al numero generato droppamo una combinazione di ingredienti
+            //formaggio e carne cotta stanno su tutti
+
+            switch (random)
+            {
+                case 1:
+                    //ritorna panino formaggio e carne
+                    paninoReq[0] = true;
+                    paninoReq[1] = true;
+                    paninoReq[2] = false;
+                    paninoReq[3] = false;
+                    break;
+                case 2:
+                    //ritorna panino formaggio e carne e pomodori
+                    paninoReq[0] = true;
+                    paninoReq[1] = true;
+                    paninoReq[2] = true;
+                    paninoReq[3] = false;
+                    break;
+                case 3:
+                    //ritorna panino formaggio e carne e pomodori e insalata
+                    paninoReq[0] = true;
+                    paninoReq[1] = true;
+                    paninoReq[2] = true;
+                    paninoReq[3] = true;
+                    break;
+                case 4:
+                    //ritorna panino formaggio e carne e insalata
+                    paninoReq[0] = true;
+                    paninoReq[1] = true;
+                    paninoReq[2] = false;
+                    paninoReq[3] = true;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+
+        //didascalia:
+        //pos 0: carne cotta
+        //pos 1: formaggio
+        //pos 2: pomodori
+        //pos 3: insalata
 
         private void terminaPartita()
         {
@@ -137,7 +194,6 @@ namespace CheeseChase
                 {
                     //aumenta i secondi e controlla se è arrabbiato o se ne va
                     secondiCliente1++;
-                    MessageBox.Show(secondiCliente1.ToString()); //test
                     if (secondiCliente1 >= 10 && statoCliente1 == statoCliente.ATTIVO)
                     {
                         //braca si arrabbia
@@ -146,7 +202,6 @@ namespace CheeseChase
                     }
                     if (secondiCliente1 >= 15 && statoCliente1 == statoCliente.ARRABBIATO)
                     {
-                        MessageBox.Show("incazzatissimo"); //test
                         //braca si incazza tantissimo
                         pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
                     }
@@ -174,8 +229,6 @@ namespace CheeseChase
                 }
             }
         }
-
-
 
         // Metodo asincrono che gestisce l'aggiunta di carne cruda sulla griglia al clic del giocatore.
         // In base al numero di pezzi già presenti, mostra la carne cruda in una delle tre posizioni disponibili.
@@ -218,6 +271,12 @@ namespace CheeseChase
             
         }
 
+        //didascalia:
+        //pos 0: carne cotta
+        //pos 1: formaggio
+        //pos 2: pomodori
+        //pos 3: insalata
+
         private void pbPilaPane_Click(object sender, EventArgs e)
         {
             //mostra il pane
@@ -227,7 +286,16 @@ namespace CheeseChase
 
         private void pbCestino_Click(object sender, EventArgs e)
         {
-            //cancella il panino corrente 
+            //resetta l'array panino preparazione
+            for (int i = 0; i < 3; i++)
+            {
+                paninoPrep[i] = false;
+            }
+            //nasconde il pane aperto
+            pbPaninoCorrenteSopra.Hide();
+            pbPaninoCorrente.Hide();
+            //rimette l'immagine iniziale del pane
+            pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
         }
 
         private void pbPaninoCorrente_Click(object sender, EventArgs e)
@@ -252,7 +320,7 @@ namespace CheeseChase
                 if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
                     pbCliente1.Hide();
 
-                if (statoCliente2 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+                if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
                     pbCliente2.Hide();
 
                 //resetta la dinamica dei clienti 
@@ -271,5 +339,126 @@ namespace CheeseChase
             //cambio lo stato della serranda
             serrandaAperta = !serrandaAperta;
         }
+
+
+        //dentro tutte ste procedure dei click si aggiorna solo l'array e si chiama la funzione visualizza panino grafica
+
+        //didascalia:
+        //pos 0: carne cotta
+        //pos 1: formaggio
+        //pos 2: pomodori
+        //pos 3: insalata
+
+        private void pbPilaPomodoro_Click(object sender, EventArgs e)
+        {
+            paninoPrep[2] = true;
+            visualizzaPaninoGrafica();
+        }
+
+        private void pbPilaInsalata_Click(object sender, EventArgs e)
+        {
+            paninoPrep[3] = true;
+            visualizzaPaninoGrafica();
+        }
+
+        private void pbPilaFormaggio_Click(object sender, EventArgs e)
+        {
+            paninoPrep[1] = true;
+            visualizzaPaninoGrafica();
+        }
+
+        private void pbCarneCotta1_Click(object sender, EventArgs e)
+        {
+            paninoPrep[0] = true;
+            visualizzaPaninoGrafica();
+            pbCarneCotta1.Hide();
+            contaCarne--;
+        }
+
+        private void pbCarneCotta2_Click(object sender, EventArgs e)
+        {
+            paninoPrep[0] = true;
+            visualizzaPaninoGrafica();
+            pbCarneCotta2.Hide();
+            contaCarne--;
+        }
+        private void pbCarneCotta3_Click(object sender, EventArgs e)
+        {
+            paninoPrep[0] = true;
+            visualizzaPaninoGrafica();
+            pbCarneCotta3.Hide();
+            contaCarne--;
+        }
+
+        private void visualizzaPaninoGrafica()
+        {
+            bool carne = paninoPrep[0];
+            bool formaggio = paninoPrep[1];
+            bool pomodoro = paninoPrep[2];
+            bool insalata = paninoPrep[3];
+
+            if (carne && !formaggio && !pomodoro && !insalata)
+            {
+                // Solo carne
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoC;
+            }
+            else if (!carne && formaggio && !pomodoro && !insalata)
+            {
+                // Solo formaggio
+            }
+            else if (!carne && !formaggio && pomodoro && !insalata)
+            {
+                // Solo pomodoro
+            }
+            else if (!carne && !formaggio && !pomodoro && insalata)
+            {
+                // Solo insalata
+            }
+            else if (carne && formaggio && !pomodoro && !insalata)
+            {
+                // Carne + formaggio
+            }
+            else if (carne && !formaggio && pomodoro && !insalata)
+            {
+                // Carne + pomodoro
+            }
+            else if (carne && !formaggio && !pomodoro && insalata)
+            {
+                // Carne + insalata
+            }
+            else if (!carne && formaggio && pomodoro && !insalata)
+            {
+                // Formaggio + pomodoro
+            }
+            else if (!carne && formaggio && !pomodoro && insalata)
+            {
+                // Formaggio + insalata
+            }
+            else if (!carne && !formaggio && pomodoro && insalata)
+            {
+                // Pomodoro + insalata
+            }
+            else if (carne && formaggio && pomodoro && !insalata)
+            {
+                // Carne + formaggio + pomodoro
+            }
+            else if (carne && formaggio && !pomodoro && insalata)
+            {
+                // Carne + formaggio + insalata
+            }
+            else if (carne && !formaggio && pomodoro && insalata)
+            {
+                // Carne + pomodoro + insalata
+            }
+            else if (!carne && formaggio && pomodoro && insalata)
+            {
+                // Formaggio + pomodoro + insalata
+            }
+            else if (carne && formaggio && pomodoro && insalata)
+            {
+                // Carne + formaggio + pomodoro + insalata
+            }
+        }
+
     }
 }           

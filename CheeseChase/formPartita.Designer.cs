@@ -160,6 +160,7 @@
             this.pbPilaInsalata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaInsalata.TabIndex = 8;
             this.pbPilaInsalata.TabStop = false;
+            this.pbPilaInsalata.Click += new System.EventHandler(this.pbPilaInsalata_Click);
             // 
             // pbCarneCotta1
             // 
@@ -171,6 +172,7 @@
             this.pbCarneCotta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCotta1.TabIndex = 11;
             this.pbCarneCotta1.TabStop = false;
+            this.pbCarneCotta1.Click += new System.EventHandler(this.pbCarneCotta1_Click);
             // 
             // pbCarneCotta2
             // 
@@ -182,6 +184,7 @@
             this.pbCarneCotta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCotta2.TabIndex = 13;
             this.pbCarneCotta2.TabStop = false;
+            this.pbCarneCotta2.Click += new System.EventHandler(this.pbCarneCotta2_Click);
             // 
             // pbCarneCotta3
             // 
@@ -193,12 +196,13 @@
             this.pbCarneCotta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCotta3.TabIndex = 14;
             this.pbCarneCotta3.TabStop = false;
+            this.pbCarneCotta3.Click += new System.EventHandler(this.pbCarneCotta3_Click);
             // 
             // pbCarneCrudaGriglia1
             // 
             this.pbCarneCrudaGriglia1.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCrudaGriglia1.Image = global::CheeseChase.Properties.Resources.carneCruda;
-            this.pbCarneCrudaGriglia1.Location = new System.Drawing.Point(1000, 578);
+            this.pbCarneCrudaGriglia1.Location = new System.Drawing.Point(999, 577);
             this.pbCarneCrudaGriglia1.Name = "pbCarneCrudaGriglia1";
             this.pbCarneCrudaGriglia1.Size = new System.Drawing.Size(78, 65);
             this.pbCarneCrudaGriglia1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -209,7 +213,7 @@
             // 
             this.pbCarneCrudaGriglia2.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCrudaGriglia2.Image = global::CheeseChase.Properties.Resources.carneCruda;
-            this.pbCarneCrudaGriglia2.Location = new System.Drawing.Point(1109, 579);
+            this.pbCarneCrudaGriglia2.Location = new System.Drawing.Point(1110, 579);
             this.pbCarneCrudaGriglia2.Name = "pbCarneCrudaGriglia2";
             this.pbCarneCrudaGriglia2.Size = new System.Drawing.Size(78, 65);
             this.pbCarneCrudaGriglia2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -220,7 +224,7 @@
             // 
             this.pbCarneCrudaGriglia3.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCrudaGriglia3.Image = global::CheeseChase.Properties.Resources.carneCruda;
-            this.pbCarneCrudaGriglia3.Location = new System.Drawing.Point(1225, 578);
+            this.pbCarneCrudaGriglia3.Location = new System.Drawing.Point(1226, 579);
             this.pbCarneCrudaGriglia3.Name = "pbCarneCrudaGriglia3";
             this.pbCarneCrudaGriglia3.Size = new System.Drawing.Size(78, 65);
             this.pbCarneCrudaGriglia3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -237,6 +241,7 @@
             this.pbPilaFormaggio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaFormaggio.TabIndex = 34;
             this.pbPilaFormaggio.TabStop = false;
+            this.pbPilaFormaggio.Click += new System.EventHandler(this.pbPilaFormaggio_Click);
             // 
             // pbPilaPomodoro
             // 
@@ -248,6 +253,7 @@
             this.pbPilaPomodoro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaPomodoro.TabIndex = 35;
             this.pbPilaPomodoro.TabStop = false;
+            this.pbPilaPomodoro.Click += new System.EventHandler(this.pbPilaPomodoro_Click);
             // 
             // pbPilaPane
             // 
