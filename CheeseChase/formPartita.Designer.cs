@@ -352,24 +352,28 @@
             // 
             // pbReq1
             // 
+            this.pbReq1.BackColor = System.Drawing.Color.Transparent;
             this.pbReq1.BackgroundImage = global::CheeseChase.Properties.Resources.paninoReqFC;
+            this.pbReq1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbReq1.Enabled = false;
             this.pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
-            this.pbReq1.Location = new System.Drawing.Point(440, 146);
+            this.pbReq1.Location = new System.Drawing.Point(410, 141);
             this.pbReq1.Name = "pbReq1";
-            this.pbReq1.Size = new System.Drawing.Size(125, 94);
+            this.pbReq1.Size = new System.Drawing.Size(112, 119);
             this.pbReq1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbReq1.TabIndex = 63;
             this.pbReq1.TabStop = false;
             // 
             // pbReq2
             // 
+            this.pbReq2.BackColor = System.Drawing.Color.Transparent;
             this.pbReq2.BackgroundImage = global::CheeseChase.Properties.Resources.paninoReqFC;
+            this.pbReq2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbReq2.Enabled = false;
             this.pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
-            this.pbReq2.Location = new System.Drawing.Point(734, 160);
+            this.pbReq2.Location = new System.Drawing.Point(724, 139);
             this.pbReq2.Name = "pbReq2";
-            this.pbReq2.Size = new System.Drawing.Size(125, 94);
+            this.pbReq2.Size = new System.Drawing.Size(112, 119);
             this.pbReq2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbReq2.TabIndex = 64;
             this.pbReq2.TabStop = false;

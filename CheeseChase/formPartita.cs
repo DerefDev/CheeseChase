@@ -60,7 +60,7 @@ namespace CheeseChase
             nomeG = nome;
             lblVite.Text = viteG.ToString();
             lblNome.Text = nomeG;
-            
+
             //nascondo le label che non servono all'inizio
             pbCarneCotta1.Hide();
             pbCarneCotta2.Hide();
@@ -79,6 +79,10 @@ namespace CheeseChase
 
             pbCliente2.Hide();
             secondiCliente2 = 0;
+
+            //nascondi vignette clienti
+            pbReq1.Hide();
+            pbReq2.Hide();
 
             //avvia il timer che ticka ogni 1000ms
             scandisciSecondi.Enabled = true;
@@ -109,32 +113,76 @@ namespace CheeseChase
                     paninoReq[1] = true;
                     paninoReq[2] = false;
                     paninoReq[3] = false;
+                    //In base al cliente, mostro l'ordine generato
                     if (clienteAttivo == 1)
                     {
-                        //da finire qui
+                        pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
+                        pbReq1.Show();
+                    }
+                    else
+                    {
+                        pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
+                        pbReq2.Show();
                     }
                     break;
+
                 case 2:
                     //ritorna panino formaggio e carne e pomodori
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = true;
                     paninoReq[3] = false;
+                    //In base al cliente, mostro l'ordine generato
+                    if (clienteAttivo == 1)
+                    {
+                        pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqFCP;
+                        pbReq1.Show();
+                    }
+                    else
+                    {
+                        pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqFCP;
+                        pbReq2.Show();
+                    }
                     break;
+
                 case 3:
                     //ritorna panino formaggio e carne e pomodori e insalata
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = true;
                     paninoReq[3] = true;
+                    //In base al cliente, mostro l'ordine generato
+                    if (clienteAttivo == 1)
+                    {
+                        pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqIFCP;
+                        pbReq1.Show();
+                    }
+                    else
+                    {
+                        pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqIFCP;
+                        pbReq2.Show();
+                    }
                     break;
+
                 case 4:
                     //ritorna panino formaggio e carne e insalata
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = false;
                     paninoReq[3] = true;
+                    //In base al cliente, mostro l'ordine generato
+                    if (clienteAttivo == 1)
+                    {
+                        pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqIFC;
+                        pbReq1.Show();
+                    }
+                    else
+                    {
+                        pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqIFC;
+                        pbReq2.Show();
+                    }
                     break;
+
                 default:
                     break;
             }
@@ -151,19 +199,6 @@ namespace CheeseChase
         {
             //terminare la partita
             //da fare
-        }
-
-        //bottone per gestire la serranda
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            //se è aperta la chiudo e viceversa
-            if (serrandaAperta)
-                this.BackgroundImage = Properties.Resources.gioco_serrandaChiusa;
-            else
-                this.BackgroundImage = Properties.Resources.gioco_serrandaAperta;
-
-            //cambio lo stato della serranda
-            serrandaAperta = !serrandaAperta;
         }
 
         //timer che ticka ogni 1000ms
@@ -189,7 +224,10 @@ namespace CheeseChase
                             statoCliente1 = statoCliente.ATTIVO;
                             clienteAttivo = 1;
                             pbCliente1.Show();
+
                             //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente1
+                            generaOrdine();
+
                         }
                         else
                         {
@@ -197,6 +235,7 @@ namespace CheeseChase
                             clienteAttivo = 2;
                             pbCliente2.Show();
                             //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente2
+                            generaOrdine();
                         }
                     }
                 }
@@ -231,7 +270,7 @@ namespace CheeseChase
                     if (secondiCliente2 == 15)
                     {
                         statoCliente2 = statoCliente.ARRABBIATO;
-                        pbCliente1.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
+                        pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
                     }
 
                     if (secondiCliente2 == 30) { }
@@ -316,7 +355,7 @@ namespace CheeseChase
 
         }
 
-
+        //Bottone che gestisce la serranda
         private void pbBottoneSerranda_Click(object sender, EventArgs e)
         {
             //se è aperta la chiudo e viceversa
@@ -327,10 +366,18 @@ namespace CheeseChase
                
                 //se ci sono clienti li nasconde 
                 if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+                {
+                    //nascondo cliente ed ordine
                     pbCliente1.Hide();
+                    pbReq1.Hide();
+                }
 
                 if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
+                {
+                    //nascondo cliente ed ordine
                     pbCliente2.Hide();
+                    pbReq2.Hide();
+                }
 
                 //resetta la dinamica dei clienti 
                 statoCliente1 = statoCliente.INVISIBIE;
