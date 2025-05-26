@@ -423,6 +423,46 @@ namespace CheeseChase.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap paninoReqFC {
+            get {
+                object obj = ResourceManager.GetObject("paninoReqFC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paninoReqFCP {
+            get {
+                object obj = ResourceManager.GetObject("paninoReqFCP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paninoReqIFC {
+            get {
+                object obj = ResourceManager.GetObject("paninoReqIFC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paninoReqIFCP {
+            get {
+                object obj = ResourceManager.GetObject("paninoReqIFCP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pilaCarneCruda {
             get {
                 object obj = ResourceManager.GetObject("pilaCarneCruda", resourceCulture);

@@ -54,6 +54,8 @@
             this.pbPaninoCorrenteSopra = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbCestino = new System.Windows.Forms.PictureBox();
+            this.pbReq1 = new System.Windows.Forms.PictureBox();
+            this.pbReq2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
@@ -72,6 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrenteSopra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReq1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenu1
@@ -346,12 +350,38 @@
             this.pbCestino.TabStop = false;
             this.pbCestino.Click += new System.EventHandler(this.pbCestino_Click);
             // 
+            // pbReq1
+            // 
+            this.pbReq1.BackgroundImage = global::CheeseChase.Properties.Resources.paninoReqFC;
+            this.pbReq1.Enabled = false;
+            this.pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
+            this.pbReq1.Location = new System.Drawing.Point(440, 146);
+            this.pbReq1.Name = "pbReq1";
+            this.pbReq1.Size = new System.Drawing.Size(125, 94);
+            this.pbReq1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbReq1.TabIndex = 63;
+            this.pbReq1.TabStop = false;
+            // 
+            // pbReq2
+            // 
+            this.pbReq2.BackgroundImage = global::CheeseChase.Properties.Resources.paninoReqFC;
+            this.pbReq2.Enabled = false;
+            this.pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
+            this.pbReq2.Location = new System.Drawing.Point(734, 160);
+            this.pbReq2.Name = "pbReq2";
+            this.pbReq2.Size = new System.Drawing.Size(125, 94);
+            this.pbReq2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbReq2.TabIndex = 64;
+            this.pbReq2.TabStop = false;
+            // 
             // formPartita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.pbReq2);
+            this.Controls.Add(this.pbReq1);
             this.Controls.Add(this.pbCestino);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pbPaninoCorrenteSopra);
@@ -396,6 +426,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrenteSopra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReq1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +458,7 @@
         private System.Windows.Forms.PictureBox pbPaninoCorrenteSopra;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pbCestino;
+        private System.Windows.Forms.PictureBox pbReq1;
+        private System.Windows.Forms.PictureBox pbReq2;
     }
 }

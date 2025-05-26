@@ -44,6 +44,8 @@ namespace CheeseChase
         int secondiCliente2;
         bool paninoAperto = false;
 
+        int clienteAttivo = 0;  //indica il cliente attivo, 0 = nessun cliente attivo
+
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
         statoCliente statoCliente2 = statoCliente.INVISIBIE;
 
@@ -107,6 +109,10 @@ namespace CheeseChase
                     paninoReq[1] = true;
                     paninoReq[2] = false;
                     paninoReq[3] = false;
+                    if (clienteAttivo == 1)
+                    {
+                        //da finire qui
+                    }
                     break;
                 case 2:
                     //ritorna panino formaggio e carne e pomodori
@@ -173,18 +179,22 @@ namespace CheeseChase
                     Random R = new Random();
                     int numeroCasualePerGenerareCliente = R.Next(1, 99999);
 
+                    clienteAttivo = 0;
+
                     //se è un numero pari e non c'è nessun cliente mostro il 1, altrimenti il 2
                     if (statoCliente1 == statoCliente.INVISIBIE && statoCliente2 == statoCliente.INVISIBIE)
                     {
                         if (numeroCasualePerGenerareCliente % 2 == 0)
                         {
                             statoCliente1 = statoCliente.ATTIVO;
+                            clienteAttivo = 1;
                             pbCliente1.Show();
                             //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente1
                         }
                         else
                         {
                             statoCliente2 = statoCliente.ATTIVO;
+                            clienteAttivo = 2;
                             pbCliente2.Show();
                             //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente2
                         }
