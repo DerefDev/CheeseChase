@@ -42,6 +42,7 @@ namespace CheeseChase
         int contaPane = 1;
         int contaInsalata = 0;
         int secondiCliente2;
+        bool paninoAperto = false;
 
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
         statoCliente statoCliente2 = statoCliente.INVISIBIE;
@@ -282,10 +283,12 @@ namespace CheeseChase
             //mostra il pane
             pbPaninoCorrente.Show();
             pbPaninoCorrenteSopra.Show();
+            paninoAperto = true;
         }
 
         private void pbCestino_Click(object sender, EventArgs e)
         {
+            paninoAperto = false;
             //resetta l'array panino preparazione
             for (int i = 0; i < 3; i++)
             {
@@ -303,10 +306,6 @@ namespace CheeseChase
 
         }
 
-        private void pbPaninoCorrenteSopra_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pbBottoneSerranda_Click(object sender, EventArgs e)
         {
@@ -339,8 +338,6 @@ namespace CheeseChase
             //cambio lo stato della serranda
             serrandaAperta = !serrandaAperta;
         }
-
-
         //dentro tutte ste procedure dei click si aggiorna solo l'array e si chiama la funzione visualizza panino grafica
 
         //didascalia:
@@ -351,43 +348,93 @@ namespace CheeseChase
 
         private void pbPilaPomodoro_Click(object sender, EventArgs e)
         {
-            paninoPrep[2] = true;
-            visualizzaPaninoGrafica();
-        }
+            if (paninoAperto)
+            {
+                paninoPrep[2] = true;
+                visualizzaPaninoGrafica();
+            }
 
+        }
         private void pbPilaInsalata_Click(object sender, EventArgs e)
         {
-            paninoPrep[3] = true;
-            visualizzaPaninoGrafica();
+            if (paninoAperto)
+            {
+                paninoPrep[3] = true;
+                visualizzaPaninoGrafica();
+            }
         }
-
         private void pbPilaFormaggio_Click(object sender, EventArgs e)
         {
-            paninoPrep[1] = true;
-            visualizzaPaninoGrafica();
+            if (paninoAperto)
+            {
+                paninoPrep[1] = true;
+                visualizzaPaninoGrafica();
+            }
         }
-
         private void pbCarneCotta1_Click(object sender, EventArgs e)
         {
-            paninoPrep[0] = true;
-            visualizzaPaninoGrafica();
-            pbCarneCotta1.Hide();
-            contaCarne--;
+            if (paninoAperto)
+            {
+                if (contaCarne == 2 && paninoAperto)
+                {
+                    paninoPrep[0] = true;
+                    visualizzaPaninoGrafica();
+                    pbCarneCotta1.Hide();
+                    contaCarne--;
+                }
+                else
+                {
+                    MessageBox.Show("Prendi l'ultima carne");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Apri prima il pane");
+            }
         }
 
         private void pbCarneCotta2_Click(object sender, EventArgs e)
         {
-            paninoPrep[0] = true;
-            visualizzaPaninoGrafica();
-            pbCarneCotta2.Hide();
-            contaCarne--;
+            if (paninoAperto)
+            {
+                if (contaCarne == 3 && paninoAperto)
+                {
+                    paninoPrep[0] = true;
+                    visualizzaPaninoGrafica();
+                    pbCarneCotta2.Hide();
+                    contaCarne--;
+                }
+                else
+                {
+                    MessageBox.Show("Prendi l'ultima carne");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Apri prima il pane");
+            }
+
         }
         private void pbCarneCotta3_Click(object sender, EventArgs e)
         {
-            paninoPrep[0] = true;
-            visualizzaPaninoGrafica();
-            pbCarneCotta3.Hide();
-            contaCarne--;
+            if (paninoAperto)
+            {
+                if (contaCarne == 4)
+                {
+                    paninoPrep[0] = true;
+                    visualizzaPaninoGrafica();
+                    pbCarneCotta3.Hide();
+                    contaCarne--;
+                }
+                else
+                {
+                    MessageBox.Show("Prendi l'ultima carne");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Apri prima il pane");
+            }
         }
 
         private void visualizzaPaninoGrafica()
@@ -489,5 +536,36 @@ namespace CheeseChase
             }
         }
 
+        private void pbPaninoCorrenteSopra_Click(object sender, EventArgs e)
+        {
+            bool carne = paninoPrep[0];
+            bool formaggio = paninoPrep[1];
+            bool pomodoro = paninoPrep[2];
+            bool insalata = paninoPrep[3];
+
+            if (carne && pomodoro && insalata && formaggio)
+            {
+                pbPaninoCorrenteSopra.Hide();
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoIFCP;
+            } else if (carne && formaggio && !insalata && !pomodoro)
+            {
+                pbPaninoCorrenteSopra.Hide();
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoFC;
+            }
+            else if (carne && formaggio && !insalata && pomodoro)
+            {
+                pbPaninoCorrenteSopra.Hide();
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoFCP;
+            }
+            else if (carne && formaggio && insalata && !pomodoro)
+            {
+                pbPaninoCorrenteSopra.Hide();
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoIFC;
+            }
+            else
+            {
+                MessageBox.Show("Inserire minimo carne e formaggio");
+            }
+        }
     }
 }           
