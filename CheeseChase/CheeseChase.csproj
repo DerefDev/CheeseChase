@@ -233,5 +233,8 @@
   <ItemGroup>
     <None Include="imgs\gioco\cestino.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Panini\paninoIFP.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

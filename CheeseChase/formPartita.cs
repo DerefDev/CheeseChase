@@ -405,58 +405,87 @@ namespace CheeseChase
             else if (!carne && formaggio && !pomodoro && !insalata)
             {
                 // Solo formaggio
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoF;
+
             }
             else if (!carne && !formaggio && pomodoro && !insalata)
             {
                 // Solo pomodoro
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoP;
+
             }
             else if (!carne && !formaggio && !pomodoro && insalata)
             {
                 // Solo insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoI;
+
             }
             else if (carne && formaggio && !pomodoro && !insalata)
             {
                 // Carne + formaggio
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoFC;
+
             }
             else if (carne && !formaggio && pomodoro && !insalata)
             {
                 // Carne + pomodoro
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCP;
+
             }
             else if (carne && !formaggio && !pomodoro && insalata)
             {
                 // Carne + insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIC;
+
             }
             else if (!carne && formaggio && pomodoro && !insalata)
             {
                 // Formaggio + pomodoro
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoFP;
+
             }
             else if (!carne && formaggio && !pomodoro && insalata)
             {
                 // Formaggio + insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIF;
+
             }
             else if (!carne && !formaggio && pomodoro && insalata)
             {
                 // Pomodoro + insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIP;
+
             }
             else if (carne && formaggio && pomodoro && !insalata)
             {
                 // Carne + formaggio + pomodoro
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoFCP;
+
             }
             else if (carne && formaggio && !pomodoro && insalata)
             {
                 // Carne + formaggio + insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIFC;
+
             }
             else if (carne && !formaggio && pomodoro && insalata)
             {
                 // Carne + pomodoro + insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoICP;
+
             }
             else if (!carne && formaggio && pomodoro && insalata)
             {
                 // Formaggio + pomodoro + insalata
+               pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIFP;
+
+
             }
             else if (carne && formaggio && pomodoro && insalata)
             {
                 // Carne + formaggio + pomodoro + insalata
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIFCP;
+
             }
         }
 
