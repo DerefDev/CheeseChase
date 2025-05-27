@@ -39,10 +39,13 @@ namespace CheeseChase
         int secondi = 0;
         int contaCarne = 1;
         int secondiCliente1;
-        int contaPane = 1;
-        int contaInsalata = 0;
+        int contaPane = 1;     //queste due variabili non sono utilizzate
+        int contaInsalata = 0; //a che cazzo servono???
         int secondiCliente2;
         bool paninoAperto = false;
+        int soldi = 0;
+        const int VALORE_PANINI = 10; //un panino venduto vale 10 euro
+        bool paninoCompletato = false;
 
         int clienteAttivo = 0;  //indica il cliente attivo, 0 = nessun cliente attivo
 
@@ -61,7 +64,7 @@ namespace CheeseChase
             lblVite.Text = viteG.ToString();
             lblNome.Text = nomeG;
 
-            //nascondo le label che non servono all'inizio
+            //nascondo gli elementi che non servono all'inizio
             pbCarneCotta1.Hide();
             pbCarneCotta2.Hide();
             pbCarneCotta3.Hide();
@@ -315,7 +318,7 @@ namespace CheeseChase
                     break;
 
                 default:
-                    //si possono aggiungere massimo 3 pezzi di carne alla griglia, lo stesso numero di clienti che possono essere presenti contemporaneamente al bancone
+                    //si possono aggiungere massimo 3 pezzi di carne alla griglia
                     break;
             }
             
@@ -329,17 +332,20 @@ namespace CheeseChase
 
         private void pbPilaPane_Click(object sender, EventArgs e)
         {
-            //mostra il pane
-            pbPaninoCorrente.Show();
-            pbPaninoCorrenteSopra.Show();
-            paninoAperto = true;
+            //mostra il pane solo se non è gia mostrato
+            if (!paninoAperto)
+            {
+                pbPaninoCorrente.Show();
+                pbPaninoCorrenteSopra.Show();
+                paninoAperto = true;
+            }
         }
 
         private void pbCestino_Click(object sender, EventArgs e)
         {
             paninoAperto = false;
             //resetta l'array panino preparazione
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 paninoPrep[i] = false;
             }
@@ -348,10 +354,70 @@ namespace CheeseChase
             pbPaninoCorrente.Hide();
             //rimette l'immagine iniziale del pane
             pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
+            //reset variabile bool
+            paninoCompletato = false;
         }
 
+        //qua dentro c'è la dinamica del "servizio" dei panini tramite click sul panino pronto
         private void pbPaninoCorrente_Click(object sender, EventArgs e)
         {
+            //controllo che il panino sia completo, ovvero se l'immagine corrisponde a uno dei 4 possibili panini completi
+            if (paninoCompletato)
+            {
+                //controllo che il panino completo corrisponda alla richiesta del cliente, sennò mando una mbox
+                bool controlloPaninoCorrispondente = true; //controllo vero fino a prova contraria
+                for (int i = 0; i < 4; i++) 
+                {
+                    if (paninoReq[i] != paninoPrep[i])
+                    {
+                        MessageBox.Show("Ingredienti errati");
+                        //se gli ingredienti non corrispondono, metto i controllo a falso ed esco dal for
+                        controlloPaninoCorrispondente = false;
+                        break;
+                    }
+                }
+                if (controlloPaninoCorrispondente)
+                {
+                    paninoAperto = false;
+                    //resetta l'array panino preparazione e req
+                    for (int i = 0; i < 4; i++)
+                    {
+                        paninoPrep[i] = false;
+                        paninoReq[i] = false;
+                    }
+                    //nasconde il pane aperto
+                    pbPaninoCorrenteSopra.Hide();
+                    pbPaninoCorrente.Hide();
+                    //rimette l'immagine iniziale del pane
+                    pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
+
+                    //il cliente attivo se ne va e l'utente riceve il denaro
+                    soldi += VALORE_PANINI;
+                    //nasconde il cliente attivo
+                    if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+                    {
+                        //nascondo cliente ed ordine
+                        pbCliente1.Hide();
+                        pbReq1.Hide();
+                    }
+
+                    if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
+                    {
+                        //nascondo cliente ed ordine
+                        pbCliente2.Hide();
+                        pbReq2.Hide();
+                    }
+                    //resetta la dinamica dei clienti 
+                    statoCliente1 = statoCliente.INVISIBIE;
+                    statoCliente2 = statoCliente.INVISIBIE;
+                    secondiCliente1 = 0;
+                    secondiCliente2 = 0;
+                    //reset controllo
+                    paninoCompletato = false;
+                    //aggiorno label denaro
+                    lblSoldi.Text = soldi.ToString();
+                }
+            }
 
         }
 
@@ -430,7 +496,7 @@ namespace CheeseChase
         }
         private void pbCarneCotta1_Click(object sender, EventArgs e)
         {
-            if (paninoAperto)
+            if (paninoAperto && !paninoCompletato)
             {
                 if (contaCarne == 2 && paninoAperto)
                 {
@@ -452,7 +518,7 @@ namespace CheeseChase
 
         private void pbCarneCotta2_Click(object sender, EventArgs e)
         {
-            if (paninoAperto)
+            if (paninoAperto && !paninoCompletato)
             {
                 if (contaCarne == 3 && paninoAperto)
                 {
@@ -474,7 +540,7 @@ namespace CheeseChase
         }
         private void pbCarneCotta3_Click(object sender, EventArgs e)
         {
-            if (paninoAperto)
+            if (paninoAperto && !paninoCompletato)
             {
                 if (contaCarne == 4)
                 {
@@ -510,86 +576,71 @@ namespace CheeseChase
             {
                 // Solo formaggio
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoF;
-
             }
             else if (!carne && !formaggio && pomodoro && !insalata)
             {
                 // Solo pomodoro
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoP;
-
             }
             else if (!carne && !formaggio && !pomodoro && insalata)
             {
                 // Solo insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoI;
-
             }
             else if (carne && formaggio && !pomodoro && !insalata)
             {
                 // Carne + formaggio
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoFC;
-
             }
             else if (carne && !formaggio && pomodoro && !insalata)
             {
                 // Carne + pomodoro
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCP;
-
             }
             else if (carne && !formaggio && !pomodoro && insalata)
             {
                 // Carne + insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIC;
-
             }
             else if (!carne && formaggio && pomodoro && !insalata)
             {
                 // Formaggio + pomodoro
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoFP;
-
             }
             else if (!carne && formaggio && !pomodoro && insalata)
             {
                 // Formaggio + insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIF;
-
             }
             else if (!carne && !formaggio && pomodoro && insalata)
             {
                 // Pomodoro + insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIP;
-
             }
             else if (carne && formaggio && pomodoro && !insalata)
             {
                 // Carne + formaggio + pomodoro
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoFCP;
-
             }
             else if (carne && formaggio && !pomodoro && insalata)
             {
                 // Carne + formaggio + insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIFC;
-
             }
             else if (carne && !formaggio && pomodoro && insalata)
             {
                 // Carne + pomodoro + insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoICP;
-
             }
             else if (!carne && formaggio && pomodoro && insalata)
             {
                 // Formaggio + pomodoro + insalata
                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIFP;
-
-
             }
             else if (carne && formaggio && pomodoro && insalata)
             {
                 // Carne + formaggio + pomodoro + insalata
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoIFCP;
-
             }
         }
 
@@ -604,20 +655,24 @@ namespace CheeseChase
             {
                 pbPaninoCorrenteSopra.Hide();
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoIFCP;
+                paninoCompletato = true;
             } else if (carne && formaggio && !insalata && !pomodoro)
             {
                 pbPaninoCorrenteSopra.Hide();
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoFC;
+                paninoCompletato = true;
             }
             else if (carne && formaggio && !insalata && pomodoro)
             {
                 pbPaninoCorrenteSopra.Hide();
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoFCP;
+                paninoCompletato = true;
             }
             else if (carne && formaggio && insalata && !pomodoro)
             {
                 pbPaninoCorrenteSopra.Hide();
                 pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.paninoCompletoIFC;
+                paninoCompletato = true;
             }
             else
             {

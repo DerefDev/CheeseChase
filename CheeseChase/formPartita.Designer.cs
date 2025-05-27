@@ -52,10 +52,11 @@
             this.pbCliente2 = new System.Windows.Forms.PictureBox();
             this.pbPaninoCorrente = new System.Windows.Forms.PictureBox();
             this.pbPaninoCorrenteSopra = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbCestino = new System.Windows.Forms.PictureBox();
             this.pbReq1 = new System.Windows.Forms.PictureBox();
             this.pbReq2 = new System.Windows.Forms.PictureBox();
+            this.lblSoldiS = new System.Windows.Forms.Label();
+            this.lblSoldi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
@@ -72,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrenteSopra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).BeginInit();
@@ -251,7 +251,7 @@
             // 
             this.pbPilaPomodoro.BackColor = System.Drawing.Color.Transparent;
             this.pbPilaPomodoro.Image = global::CheeseChase.Properties.Resources.pilaPomodoro_1_;
-            this.pbPilaPomodoro.Location = new System.Drawing.Point(122, 616);
+            this.pbPilaPomodoro.Location = new System.Drawing.Point(111, 615);
             this.pbPilaPomodoro.Name = "pbPilaPomodoro";
             this.pbPilaPomodoro.Size = new System.Drawing.Size(172, 128);
             this.pbPilaPomodoro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -330,14 +330,6 @@
             this.pbPaninoCorrenteSopra.TabStop = false;
             this.pbPaninoCorrenteSopra.Click += new System.EventHandler(this.pbPaninoCorrenteSopra_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(-23, -46);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox2.TabIndex = 61;
-            this.pictureBox2.TabStop = false;
-            // 
             // pbCestino
             // 
             this.pbCestino.BackColor = System.Drawing.Color.Transparent;
@@ -378,16 +370,41 @@
             this.pbReq2.TabIndex = 64;
             this.pbReq2.TabStop = false;
             // 
+            // lblSoldiS
+            // 
+            this.lblSoldiS.AutoSize = true;
+            this.lblSoldiS.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoldiS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoldiS.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSoldiS.Location = new System.Drawing.Point(761, 26);
+            this.lblSoldiS.Name = "lblSoldiS";
+            this.lblSoldiS.Size = new System.Drawing.Size(283, 31);
+            this.lblSoldiS.TabIndex = 65;
+            this.lblSoldiS.Text = "Denaro guadagnato: €";
+            // 
+            // lblSoldi
+            // 
+            this.lblSoldi.AutoSize = true;
+            this.lblSoldi.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoldi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoldi.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSoldi.Location = new System.Drawing.Point(1038, 26);
+            this.lblSoldi.Name = "lblSoldi";
+            this.lblSoldi.Size = new System.Drawing.Size(29, 31);
+            this.lblSoldi.TabIndex = 66;
+            this.lblSoldi.Text = "0";
+            // 
             // formPartita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.lblSoldi);
+            this.Controls.Add(this.lblSoldiS);
             this.Controls.Add(this.pbReq2);
             this.Controls.Add(this.pbReq1);
             this.Controls.Add(this.pbCestino);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pbPaninoCorrenteSopra);
             this.Controls.Add(this.pbPaninoCorrente);
             this.Controls.Add(this.pbCliente2);
@@ -428,7 +445,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaninoCorrenteSopra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).EndInit();
@@ -460,9 +476,10 @@
         private System.Windows.Forms.PictureBox pbCliente2;
         private System.Windows.Forms.PictureBox pbPaninoCorrente;
         private System.Windows.Forms.PictureBox pbPaninoCorrenteSopra;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pbCestino;
         private System.Windows.Forms.PictureBox pbReq1;
         private System.Windows.Forms.PictureBox pbReq2;
+        private System.Windows.Forms.Label lblSoldiS;
+        private System.Windows.Forms.Label lblSoldi;
     }
 }
