@@ -57,6 +57,8 @@
             this.pbReq2 = new System.Windows.Forms.PictureBox();
             this.lblSoldiS = new System.Windows.Forms.Label();
             this.lblSoldi = new System.Windows.Forms.Label();
+            this.pbMacchinaPolizia = new System.Windows.Forms.PictureBox();
+            this.pbPoliziotto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
@@ -76,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMacchinaPolizia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPoliziotto)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenu1
@@ -394,12 +398,38 @@
             this.lblSoldi.TabIndex = 66;
             this.lblSoldi.Text = "0";
             // 
+            // pbMacchinaPolizia
+            // 
+            this.pbMacchinaPolizia.BackColor = System.Drawing.Color.Transparent;
+            this.pbMacchinaPolizia.Image = global::CheeseChase.Properties.Resources.MacchinaPolizia;
+            this.pbMacchinaPolizia.Location = new System.Drawing.Point(747, 219);
+            this.pbMacchinaPolizia.Name = "pbMacchinaPolizia";
+            this.pbMacchinaPolizia.Size = new System.Drawing.Size(483, 273);
+            this.pbMacchinaPolizia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMacchinaPolizia.TabIndex = 67;
+            this.pbMacchinaPolizia.TabStop = false;
+            this.pbMacchinaPolizia.Visible = false;
+            // 
+            // pbPoliziotto
+            // 
+            this.pbPoliziotto.BackColor = System.Drawing.Color.Transparent;
+            this.pbPoliziotto.Image = global::CheeseChase.Properties.Resources.Poliziotto;
+            this.pbPoliziotto.Location = new System.Drawing.Point(528, 155);
+            this.pbPoliziotto.Name = "pbPoliziotto";
+            this.pbPoliziotto.Size = new System.Drawing.Size(213, 303);
+            this.pbPoliziotto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPoliziotto.TabIndex = 68;
+            this.pbPoliziotto.TabStop = false;
+            this.pbPoliziotto.Visible = false;
+            // 
             // formPartita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.pbPoliziotto);
+            this.Controls.Add(this.pbMacchinaPolizia);
             this.Controls.Add(this.lblSoldi);
             this.Controls.Add(this.lblSoldiS);
             this.Controls.Add(this.pbReq2);
@@ -448,6 +478,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMacchinaPolizia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPoliziotto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,5 +513,7 @@
         private System.Windows.Forms.PictureBox pbReq2;
         private System.Windows.Forms.Label lblSoldiS;
         private System.Windows.Forms.Label lblSoldi;
+        private System.Windows.Forms.PictureBox pbMacchinaPolizia;
+        private System.Windows.Forms.PictureBox pbPoliziotto;
     }
 }

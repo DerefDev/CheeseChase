@@ -47,6 +47,8 @@ namespace CheeseChase
         const int VALORE_PANINI = 10; //un panino venduto vale 10 euro
         bool paninoCompletato = false;
 
+        bool[] carne = new bool[3]; //array della carne 
+
         int clienteAttivo = 0;  //indica il cliente attivo, 0 = nessun cliente attivo
 
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
@@ -95,6 +97,7 @@ namespace CheeseChase
         private void diminuisciVite()
         {
             viteG--;
+            lblVite.Text = viteG.ToString();
             if (viteG < 1)
                 terminaPartita();
         }
@@ -200,8 +203,14 @@ namespace CheeseChase
 
         private void terminaPartita()
         {
-            //terminare la partita
-            //da fare
+            //apro la form end
+            formEnd end = new formEnd();
+            //nascondo FormPartita
+            this.Hide();
+            //quando formPartita si chiude, chiude anche FormEnd
+            end.FormClosed += (s, args) => this.Close();
+            //apro formEnd
+            end.Show();
         }
 
         //timer che ticka ogni 1000ms
@@ -258,10 +267,11 @@ namespace CheeseChase
                         //braca si incazza tantissimo
                         pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
                     }
-                    //da finire
 
-
-                    if (secondiCliente1 == 30) { }
+                    if (secondiCliente1 == 30) {
+                        clientiVannoVia();
+                        diminuisciVite();
+                    }
                         //si incazza troppo e quindi se ne va (da fare)
 
                 }
@@ -276,8 +286,10 @@ namespace CheeseChase
                         pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
                     }
 
-                    if (secondiCliente2 == 30) { }
-                    //si incazza troppo e quindi se ne va (da fare)
+                    if (secondiCliente2 == 30) {
+                        clientiVannoVia();
+                        diminuisciVite();
+                    }
 
                 }
             }
@@ -291,35 +303,29 @@ namespace CheeseChase
         // durante l'attesa, permettendo ad esempio ai clienti di continuare ad arrivare o ad altri eventi di verificarsi.
         private async void pbPilaCarneCruda_Click(object sender, EventArgs e)       
         {
-            switch (contaCarne)
+            if (!carne[0])
             {
-                case 1:
-                    pbCarneCrudaGriglia1.Show();            //mostro la carne cruda sulla griglia
-                    contaCarne++;                           //contatore di quanti pezzzi di carne sono sulla griglia, massimo 3 pezzi alla volta
-                    await Task.Delay(5000);                 //delay di 5 secondi prima di passare dalla carne cruda a cotta
-                    pbCarneCrudaGriglia1.Hide();            //l'immagine della carne cruda viene tolta e si ha quella cotta
-                    pbCarneCotta1.Show();
-                    break;
-
-                case 2:
-                    pbCarneCrudaGriglia2.Show();
-                    contaCarne++;
-                    await Task.Delay(5000);
-                    pbCarneCrudaGriglia2.Hide();
-                    pbCarneCotta2.Show();
-                    break;
-
-                case 3:
-                    pbCarneCrudaGriglia3.Show();
-                    contaCarne++;
-                    await Task.Delay(5000);
-                    pbCarneCrudaGriglia3.Hide();
-                    pbCarneCotta3.Show();
-                    break;
-
-                default:
-                    //si possono aggiungere massimo 3 pezzi di carne alla griglia
-                    break;
+                pbCarneCrudaGriglia1.Show();            //mostro la carne cruda sulla griglia
+                carne[0] = true;
+                await Task.Delay(5000);                 //delay di 5 secondi prima di passare dalla carne cruda a cotta
+                pbCarneCrudaGriglia1.Hide();            //l'immagine della carne cruda viene tolta e si ha quella cotta
+                pbCarneCotta1.Show();
+            }
+            else if (!carne[1])
+            {
+                pbCarneCrudaGriglia2.Show();
+                carne[1] = true;
+                await Task.Delay(5000);
+                pbCarneCrudaGriglia2.Hide();
+                pbCarneCotta2.Show();
+            }
+            else if (!carne[2])
+            {
+                pbCarneCrudaGriglia3.Show();
+                carne[2] = true;
+                await Task.Delay(5000);
+                pbCarneCrudaGriglia3.Hide();
+                pbCarneCotta3.Show();
             }
             
         }
@@ -394,24 +400,7 @@ namespace CheeseChase
                     //il cliente attivo se ne va e l'utente riceve il denaro
                     soldi += VALORE_PANINI;
                     //nasconde il cliente attivo
-                    if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
-                    {
-                        //nascondo cliente ed ordine
-                        pbCliente1.Hide();
-                        pbReq1.Hide();
-                    }
-
-                    if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
-                    {
-                        //nascondo cliente ed ordine
-                        pbCliente2.Hide();
-                        pbReq2.Hide();
-                    }
-                    //resetta la dinamica dei clienti 
-                    statoCliente1 = statoCliente.INVISIBIE;
-                    statoCliente2 = statoCliente.INVISIBIE;
-                    secondiCliente1 = 0;
-                    secondiCliente2 = 0;
+                    clientiVannoVia();
                     //reset controllo
                     paninoCompletato = false;
                     //aggiorno label denaro
@@ -419,6 +408,34 @@ namespace CheeseChase
                 }
             }
 
+        }
+
+        private void clientiVannoVia()
+        {
+            //se ci sono clienti li nasconde 
+            if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+            {
+                //nascondo cliente ed ordine
+                pbCliente1.Hide();
+                pbReq1.Hide();
+            }
+
+            if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
+            {
+                //nascondo cliente ed ordine
+                pbCliente2.Hide();
+                pbReq2.Hide();
+            }
+
+            //resetta la dinamica dei clienti 
+            statoCliente1 = statoCliente.INVISIBIE;
+            statoCliente2 = statoCliente.INVISIBIE;
+            secondiCliente1 = 0;
+            secondiCliente2 = 0;
+
+            //ritorniamo i clienti tranquilli (verbo coniato al sud)
+            pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Tranquillo;
+            pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaTranquillo;
         }
 
         //Bottone che gestisce la serranda
@@ -429,27 +446,8 @@ namespace CheeseChase
             {
                 //mette la pic della serranda chiusa
                 this.BackgroundImage = Properties.Resources.gioco_serrandaChiusa;
-               
-                //se ci sono clienti li nasconde 
-                if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
-                {
-                    //nascondo cliente ed ordine
-                    pbCliente1.Hide();
-                    pbReq1.Hide();
-                }
 
-                if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
-                {
-                    //nascondo cliente ed ordine
-                    pbCliente2.Hide();
-                    pbReq2.Hide();
-                }
-
-                //resetta la dinamica dei clienti 
-                statoCliente1 = statoCliente.INVISIBIE;
-                statoCliente2 = statoCliente.INVISIBIE;
-                secondiCliente1 = 0;
-                secondiCliente2 = 0;
+                clientiVannoVia(); 
 
             }
             else
@@ -498,21 +496,14 @@ namespace CheeseChase
         {
             if (paninoAperto && !paninoCompletato)
             {
-                if (contaCarne == 2 && paninoAperto)
-                {
-                    paninoPrep[0] = true;
-                    visualizzaPaninoGrafica();
-                    pbCarneCotta1.Hide();
-                    contaCarne--;
-                }
-                else
-                {
-                    MessageBox.Show("Prendi l'ultima carne");
-                }
+                paninoPrep[0] = true;
+                visualizzaPaninoGrafica();
+                pbCarneCotta1.Hide();
+                carne[0] = false;
             }
             else
             {
-                MessageBox.Show("Apri prima il pane");
+                //MessageBox.Show("Apri prima il pane");
             }
         }
 
@@ -520,21 +511,14 @@ namespace CheeseChase
         {
             if (paninoAperto && !paninoCompletato)
             {
-                if (contaCarne == 3 && paninoAperto)
-                {
-                    paninoPrep[0] = true;
-                    visualizzaPaninoGrafica();
-                    pbCarneCotta2.Hide();
-                    contaCarne--;
-                }
-                else
-                {
-                    MessageBox.Show("Prendi l'ultima carne");
-                }
+                paninoPrep[0] = true;
+                visualizzaPaninoGrafica();
+                pbCarneCotta2.Hide();
+                carne[1] = false;
             }
             else
             {
-                MessageBox.Show("Apri prima il pane");
+                //MessageBox.Show("Apri prima il pane");
             }
 
         }
@@ -542,21 +526,15 @@ namespace CheeseChase
         {
             if (paninoAperto && !paninoCompletato)
             {
-                if (contaCarne == 4)
-                {
-                    paninoPrep[0] = true;
-                    visualizzaPaninoGrafica();
-                    pbCarneCotta3.Hide();
-                    contaCarne--;
-                }
-                else
-                {
-                    MessageBox.Show("Prendi l'ultima carne");
-                }
+                paninoPrep[0] = true;
+                visualizzaPaninoGrafica();
+                pbCarneCotta3.Hide();
+                carne[2] = false;
+              
             }
             else
             {
-                MessageBox.Show("Apri prima il pane");
+                //MessageBox.Show("Apri prima il pane");
             }
         }
 
