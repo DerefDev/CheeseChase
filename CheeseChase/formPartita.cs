@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace CheeseChase
 {
@@ -26,7 +27,6 @@ namespace CheeseChase
         bool[] paninoPrep = new bool[4];
         //array che contiene la richiesta del cliente
         bool[] paninoReq = new bool[4];
-
         //didascalia:
         //pos 0: carne cotta
         //pos 1: formaggio
@@ -36,21 +36,29 @@ namespace CheeseChase
         //g sta per gioco per indicare che sono diverse da quelle passate dal menu start
         int viteG; 
         string nomeG;
+        //variabile che conta i secondi totali della partita
         int secondi = 0;
-        int contaCarne = 1;
+        //variabile che conta la presenza del cliente in secondi per misurare la sua arrabbiatura o meno
         int secondiCliente1;
-        int contaPane = 1;     //queste due variabili non sono utilizzate
-        int contaInsalata = 0; //a che cazzo servono???
         int secondiCliente2;
+        //permette di condire con gli ingredienti solo se è true
         bool paninoAperto = false;
+        //variabili abbastanza autoesplicatie
         int soldi = 0;
         const int VALORE_PANINI = 10; //un panino venduto vale 10 euro
+        //variabile utile per il controllo pre servizio dei clienti
         bool paninoCompletato = false;
+        //variabile per lo spostamento pulito della policecar (contiene la sua x)
+        int timerPoliziaMacchina = 144;
+        int contatoreProgressbar = 200;
 
-        bool[] carne = new bool[3]; //array della carne 
+        //array delle fette di carne 
+        bool[] carne = new bool[3];
 
-        int clienteAttivo = 0;  //indica il cliente attivo, 0 = nessun cliente attivo
+        //indica il cliente attivo, 0 = nessun cliente attivo
+        int clienteAttivo = 0;  
 
+        //entrambi i clienti partono come invisibii
         statoCliente statoCliente1 = statoCliente.INVISIBIE;
         statoCliente statoCliente2 = statoCliente.INVISIBIE;
 
@@ -78,9 +86,12 @@ namespace CheeseChase
             pbPaninoCorrente.Hide();
             pbPaninoCorrenteSopra.Hide();
 
+            //arrivoPoliziaSmooth(); //per test
+
             //nascondo i clienti 
             pbCliente1.Hide();
-            secondiCliente1 = 0; //contiene i secondi che aspetta il cliente 1, sopra a 15 si arrabbia e a 30 va via e perde una vita il giocatore
+            //contiene i secondi che aspetta il cliente 1, sopra a 15 si arrabbia e a 30 va via e perde una vita il giocatore
+            secondiCliente1 = 0; 
 
             pbCliente2.Hide();
             secondiCliente2 = 0;
@@ -91,6 +102,23 @@ namespace CheeseChase
 
             //avvia il timer che ticka ogni 1000ms
             scandisciSecondi.Enabled = true;
+        }
+
+        //mostra custom message box che sarebbero in realtà grafiche fatte da noi
+        private void mostraCustomMbox(int cmb, int waitTime)
+        {
+            //cmb sta per custom messagebox, in base al numero se ne mostra una certa, waitTime sta per il tempo che sta "mbox" rimane attiva
+            switch (cmb)
+            {
+                case 1:
+                    pbCustomMessageBox = this.pbCustomMessageBox; //esempio, poi mettici l'immagine vera
+                    pbCustomMessageBox.Show();
+                    Thread.Sleep(waitTime);
+                    pbCustomMessageBox.Hide();
+                    break;
+                default:
+                    break;
+            }
         }
 
         //procedura per diminuire le vite CONTIENE IL CONTROLLO PER VEDERE SE LE VITE SONO FINITE
@@ -108,13 +136,13 @@ namespace CheeseChase
             Random R = new Random();
             int random = R.Next(1, 4);
 
-            //in base al numero generato droppamo una combinazione di ingredienti
+            //in base al numero generato scegliamo una combinazione di ingredienti
             //formaggio e carne cotta stanno su tutti
 
             switch (random)
             {
                 case 1:
-                    //ritorna panino formaggio e carne
+                    //panino formaggio e carne
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = false;
@@ -133,7 +161,7 @@ namespace CheeseChase
                     break;
 
                 case 2:
-                    //ritorna panino formaggio e carne e pomodori
+                    //panino formaggio e carne e pomodori
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = true;
@@ -152,7 +180,7 @@ namespace CheeseChase
                     break;
 
                 case 3:
-                    //ritorna panino formaggio e carne e pomodori e insalata
+                    //panino formaggio e carne e pomodori e insalata
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = true;
@@ -171,7 +199,7 @@ namespace CheeseChase
                     break;
 
                 case 4:
-                    //ritorna panino formaggio e carne e insalata
+                    //panino formaggio e carne e insalata
                     paninoReq[0] = true;
                     paninoReq[1] = true;
                     paninoReq[2] = false;
@@ -191,15 +219,8 @@ namespace CheeseChase
 
                 default:
                     break;
-            }
-            
+            }           
         }
-
-        //didascalia:
-        //pos 0: carne cotta
-        //pos 1: formaggio
-        //pos 2: pomodori
-        //pos 3: insalata
 
         private void terminaPartita()
         {
@@ -218,14 +239,15 @@ namespace CheeseChase
         {
             if (serrandaAperta)
             {
-                secondi++; //incrementa il contatore dei secondi
-                           //eventualmente fa arrivare un cliente
+                //incrementa il contatore dei secondi
+                secondi++; 
+                //eventualmente fa arrivare un cliente
                 if (secondi % 5 == 0)
                 {
-
                     Random R = new Random();
                     int numeroCasualePerGenerareCliente = R.Next(1, 99999);
-
+                    
+                    //variabile aggiornata con l'enum solo se passa il controllo
                     clienteAttivo = 0;
 
                     //se è un numero pari e non c'è nessun cliente mostro il 1, altrimenti il 2
@@ -236,17 +258,13 @@ namespace CheeseChase
                             statoCliente1 = statoCliente.ATTIVO;
                             clienteAttivo = 1;
                             pbCliente1.Show();
-
-                            //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente1
                             generaOrdine();
-
                         }
                         else
                         {
                             statoCliente2 = statoCliente.ATTIVO;
                             clienteAttivo = 2;
                             pbCliente2.Show();
-                            //qui deve generare l'ordine e iniziare a contare secondi nel contatore cliente2
                             generaOrdine();
                         }
                     }
@@ -267,12 +285,10 @@ namespace CheeseChase
                         //braca si incazza tantissimo
                         pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
                     }
-
                     if (secondiCliente1 == 30) {
                         clientiVannoVia();
                         diminuisciVite();
                     }
-                        //si incazza troppo e quindi se ne va (da fare)
 
                 }
 
@@ -285,30 +301,32 @@ namespace CheeseChase
                         statoCliente2 = statoCliente.ARRABBIATO;
                         pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
                     }
-
                     if (secondiCliente2 == 30) {
                         clientiVannoVia();
                         diminuisciVite();
                     }
-
                 }
             }
         }
 
-        // Metodo asincrono che gestisce l'aggiunta di carne cruda sulla griglia al clic del giocatore.
-        // In base al numero di pezzi già presenti, mostra la carne cruda in una delle tre posizioni disponibili.
-        // Dopo aver posizionato la carne, attende 5 secondi per simulare il tempo di cottura.
-        // La parola chiave "async" consente di eseguire operazioni asincrone, come "await Task.Delay",
-        // senza bloccare il thread principale (UI thread). In questo modo l'interfaccia utente rimane fluida e reattiva
-        // durante l'attesa, permettendo ad esempio ai clienti di continuare ad arrivare o ad altri eventi di verificarsi.
+        /*Metodo asincrono che gestisce l'aggiunta di carne cruda sulla griglia al clic del giocatore.
+          In base al numero di pezzi già presenti, mostra la carne cruda in una delle tre posizioni disponibili.
+          Dopo aver posizionato la carne, attende 5 secondi per simulare il tempo di cottura.
+          La parola chiave "async" consente di eseguire operazioni asincrone, come "await Task.Delay",
+          senza bloccare il thread principale (UI thread). In questo modo l'interfaccia utente rimane fluida e reattiva
+          durante l'attesa, permettendo ad esempio ai clienti di continuare ad arrivare o ad altri eventi di verificarsi. */
         private async void pbPilaCarneCruda_Click(object sender, EventArgs e)       
         {
             if (!carne[0])
             {
-                pbCarneCrudaGriglia1.Show();            //mostro la carne cruda sulla griglia
+                //mostro la carne cruda sulla griglia
+                pbCarneCrudaGriglia1.Show();    
+                //aggiorno l'array
                 carne[0] = true;
-                await Task.Delay(5000);                 //delay di 5 secondi prima di passare dalla carne cruda a cotta
-                pbCarneCrudaGriglia1.Hide();            //l'immagine della carne cruda viene tolta e si ha quella cotta
+                //delay di 5 secondi prima di passare dalla carne cruda a cotta
+                await Task.Delay(5000);
+                //l'immagine della carne cruda viene tolta e si ha quella cotta
+                pbCarneCrudaGriglia1.Hide();            
                 pbCarneCotta1.Show();
             }
             else if (!carne[1])
@@ -330,12 +348,6 @@ namespace CheeseChase
             
         }
 
-        //didascalia:
-        //pos 0: carne cotta
-        //pos 1: formaggio
-        //pos 2: pomodori
-        //pos 3: insalata
-
         private void pbPilaPane_Click(object sender, EventArgs e)
         {
             //mostra il pane solo se non è gia mostrato
@@ -349,6 +361,7 @@ namespace CheeseChase
 
         private void pbCestino_Click(object sender, EventArgs e)
         {
+            //il pane non c'è piu quindi la variabile per il controllo viene messa a false
             paninoAperto = false;
             //resetta l'array panino preparazione
             for (int i = 0; i < 4; i++)
@@ -370,10 +383,11 @@ namespace CheeseChase
             //controllo che il panino sia completo, ovvero se l'immagine corrisponde a uno dei 4 possibili panini completi
             if (paninoCompletato)
             {
-                //controllo che il panino completo corrisponda alla richiesta del cliente, sennò mando una mbox
-                bool controlloPaninoCorrispondente = true; //controllo vero fino a prova contraria
+                //controllo che il panino completo corrisponda alla richiesta del cliente, sennò mando una mbox (vero fino a prova contraria)
+                bool controlloPaninoCorrispondente = true; 
                 for (int i = 0; i < 4; i++) 
                 {
+                    //se trovo un ingrediente che non corrisponde vuoldire che il panino rpeparato è sbagliato e mando una mbox
                     if (paninoReq[i] != paninoPrep[i])
                     {
                         MessageBox.Show("Ingredienti errati");
@@ -384,6 +398,7 @@ namespace CheeseChase
                 }
                 if (controlloPaninoCorrispondente)
                 {
+                    //se il controllo è passato avviene il servizio, quindi non c'è piu nessun panino sul bancone (dato che viene venduto al cliente)
                     paninoAperto = false;
                     //resetta l'array panino preparazione e req
                     for (int i = 0; i < 4; i++)
@@ -409,7 +424,6 @@ namespace CheeseChase
             }
 
         }
-
         private void clientiVannoVia()
         {
             //se ci sono clienti li nasconde 
@@ -444,29 +458,22 @@ namespace CheeseChase
             //se è aperta la chiudo e viceversa
             if (serrandaAperta)
             {
-                //mette la pic della serranda chiusa
+                //metto la pic della serranda chiusa
                 this.BackgroundImage = Properties.Resources.gioco_serrandaChiusa;
-
                 clientiVannoVia(); 
-
             }
             else
             {
-                //apre la serranda 
+                //metto la pic della serranda aperta (apre la serranda)
                 this.BackgroundImage = Properties.Resources.gioco_serrandaAperta;
             }
-
             //cambio lo stato della serranda
             serrandaAperta = !serrandaAperta;
         }
+
+
         //dentro tutte ste procedure dei click si aggiorna solo l'array e si chiama la funzione visualizza panino grafica
-
-        //didascalia:
-        //pos 0: carne cotta
-        //pos 1: formaggio
-        //pos 2: pomodori
-        //pos 3: insalata
-
+        //ovviamente il panino viene condito solo se è aperto (controllo iniziale)
         private void pbPilaPomodoro_Click(object sender, EventArgs e)
         {
             if (paninoAperto)
@@ -492,6 +499,7 @@ namespace CheeseChase
                 visualizzaPaninoGrafica();
             }
         }
+
         private void pbCarneCotta1_Click(object sender, EventArgs e)
         {
             if (paninoAperto && !paninoCompletato)
@@ -506,7 +514,6 @@ namespace CheeseChase
                 //MessageBox.Show("Apri prima il pane");
             }
         }
-
         private void pbCarneCotta2_Click(object sender, EventArgs e)
         {
             if (paninoAperto && !paninoCompletato)
@@ -624,11 +631,13 @@ namespace CheeseChase
 
         private void pbPaninoCorrenteSopra_Click(object sender, EventArgs e)
         {
+            //trasferisco dall'array dentro delle bool locali per comodità e leggibilità del codice 
             bool carne = paninoPrep[0];
             bool formaggio = paninoPrep[1];
             bool pomodoro = paninoPrep[2];
             bool insalata = paninoPrep[3];
 
+            //in base agli ingredienti faccio venire fuori il panino giusto
             if (carne && pomodoro && insalata && formaggio)
             {
                 pbPaninoCorrenteSopra.Hide();
@@ -657,5 +666,39 @@ namespace CheeseChase
                 MessageBox.Show("Inserire minimo carne e formaggio");
             }
         }
+
+        /*private void timerPolizia_Tick(object sender, EventArgs e)
+        {
+            //760 è la x a cui deve arrivare la macchina, altrimenti continua a muoversi entrando qua dentro
+            if (timerPoliziaMacchina < 760)
+            {
+                //aggiorna posizione e timer della macchina
+                pbMacchinaPolizia.Location = new Point(timerPoliziaMacchina, 219);
+                timerPoliziaMacchina += 10;
+            }
+            else
+            {
+                if (!pbPoliziaCounter.Visible)
+                {
+                    //se la macchina è arrivata facccio apparire anche lo sbirro
+                    pbPoliziotto.Show();
+                    //avvio la dinamica della polizia con un aggiornamento progressivo della barra del poliziotto
+                    pbPoliziaCounter.Show();
+                }
+                //riempo progressivamente la progressbar e controllo lo stato della serranda, se è aperta continuo
+                
+
+                //DA FINIRE STA PARTE CHE SI E SMINKIATO TUTTO
+
+                pbPoliziaCounter.Width -= contatoreProgressbar;
+                contatoreProgressbar += 20;
+            }
+        }
+        private void arrivoPoliziaSmooth()
+        {
+            timerPolizia.Start();
+            pbMacchinaPolizia.Show();
+        }*/
     }
-}           
+}          
+

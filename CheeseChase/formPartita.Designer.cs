@@ -59,6 +59,9 @@
             this.lblSoldi = new System.Windows.Forms.Label();
             this.pbMacchinaPolizia = new System.Windows.Forms.PictureBox();
             this.pbPoliziotto = new System.Windows.Forms.PictureBox();
+            this.pbCustomMessageBox = new System.Windows.Forms.PictureBox();
+            this.timerPolizia = new System.Windows.Forms.Timer(this.components);
+            this.pbPoliziaCounter = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPilaInsalata)).BeginInit();
@@ -80,6 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMacchinaPolizia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoliziotto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustomMessageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPoliziaCounter)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenu1
@@ -402,7 +407,7 @@
             // 
             this.pbMacchinaPolizia.BackColor = System.Drawing.Color.Transparent;
             this.pbMacchinaPolizia.Image = global::CheeseChase.Properties.Resources.MacchinaPolizia;
-            this.pbMacchinaPolizia.Location = new System.Drawing.Point(747, 219);
+            this.pbMacchinaPolizia.Location = new System.Drawing.Point(144, 219);
             this.pbMacchinaPolizia.Name = "pbMacchinaPolizia";
             this.pbMacchinaPolizia.Size = new System.Drawing.Size(483, 273);
             this.pbMacchinaPolizia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -422,12 +427,40 @@
             this.pbPoliziotto.TabStop = false;
             this.pbPoliziotto.Visible = false;
             // 
+            // pbCustomMessageBox
+            // 
+            this.pbCustomMessageBox.Location = new System.Drawing.Point(540, 495);
+            this.pbCustomMessageBox.Name = "pbCustomMessageBox";
+            this.pbCustomMessageBox.Size = new System.Drawing.Size(296, 107);
+            this.pbCustomMessageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCustomMessageBox.TabIndex = 69;
+            this.pbCustomMessageBox.TabStop = false;
+            this.pbCustomMessageBox.Visible = false;
+            // 
+            // timerPolizia
+            // 
+            this.timerPolizia.Interval = 50;
+            this.timerPolizia.Tick += new System.EventHandler(this.timerPolizia_Tick);
+            // 
+            // pbPoliziaCounter
+            // 
+            this.pbPoliziaCounter.BackColor = System.Drawing.Color.Red;
+            this.pbPoliziaCounter.Location = new System.Drawing.Point(528, 457);
+            this.pbPoliziaCounter.Name = "pbPoliziaCounter";
+            this.pbPoliziaCounter.Size = new System.Drawing.Size(200, 32);
+            this.pbPoliziaCounter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPoliziaCounter.TabIndex = 70;
+            this.pbPoliziaCounter.TabStop = false;
+            this.pbPoliziaCounter.Visible = false;
+            // 
             // formPartita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.Controls.Add(this.pbPoliziaCounter);
+            this.Controls.Add(this.pbCustomMessageBox);
             this.Controls.Add(this.pbPoliziotto);
             this.Controls.Add(this.pbMacchinaPolizia);
             this.Controls.Add(this.lblSoldi);
@@ -480,6 +513,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbReq2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMacchinaPolizia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoliziotto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustomMessageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPoliziaCounter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +550,8 @@
         private System.Windows.Forms.Label lblSoldi;
         private System.Windows.Forms.PictureBox pbMacchinaPolizia;
         private System.Windows.Forms.PictureBox pbPoliziotto;
+        private System.Windows.Forms.PictureBox pbCustomMessageBox;
+        private System.Windows.Forms.Timer timerPolizia;
+        private System.Windows.Forms.PictureBox pbPoliziaCounter;
     }
 }
