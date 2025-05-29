@@ -396,30 +396,36 @@ namespace CheeseChase
                         break;
                     }
                 }
+
+                //avviene il servizio, quindi non c'è piu nessun panino sul bancone (dato che viene venduto al cliente)
+                paninoAperto = false;
+                //resetta l'array panino preparazione e req
+                for (int i = 0; i < 4; i++)
+                {
+                    paninoPrep[i] = false;
+                    paninoReq[i] = false;
+                }
+                //nasconde il pane aperto
+                pbPaninoCorrenteSopra.Hide();
+                pbPaninoCorrente.Hide();
+                //rimette l'immagine iniziale del pane
+                pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
+                //nasconde il cliente attivo
+                clientiVannoVia();
+                //reset controllo
+                paninoCompletato = false;
+
                 if (controlloPaninoCorrispondente)
                 {
-                    //se il controllo è passato avviene il servizio, quindi non c'è piu nessun panino sul bancone (dato che viene venduto al cliente)
-                    paninoAperto = false;
-                    //resetta l'array panino preparazione e req
-                    for (int i = 0; i < 4; i++)
-                    {
-                        paninoPrep[i] = false;
-                        paninoReq[i] = false;
-                    }
-                    //nasconde il pane aperto
-                    pbPaninoCorrenteSopra.Hide();
-                    pbPaninoCorrente.Hide();
-                    //rimette l'immagine iniziale del pane
-                    pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
-
-                    //il cliente attivo se ne va e l'utente riceve il denaro
+                    //se il  panino è giusto riceve il pagamento
                     soldi += VALORE_PANINI;
-                    //nasconde il cliente attivo
-                    clientiVannoVia();
-                    //reset controllo
-                    paninoCompletato = false;
                     //aggiorno label denaro
                     lblSoldi.Text = soldi.ToString();
+                }
+                else
+                {
+                    //se ilpanino è sbagliato tolgo 1 vita
+                    diminuisciVite();
                 }
             }
 
@@ -476,7 +482,7 @@ namespace CheeseChase
         //ovviamente il panino viene condito solo se è aperto (controllo iniziale)
         private void pbPilaPomodoro_Click(object sender, EventArgs e)
         {
-            if (paninoAperto)
+            if (paninoAperto && !paninoCompletato)
             {
                 paninoPrep[2] = true;
                 visualizzaPaninoGrafica();
@@ -485,7 +491,7 @@ namespace CheeseChase
         }
         private void pbPilaInsalata_Click(object sender, EventArgs e)
         {
-            if (paninoAperto)
+            if (paninoAperto && !paninoCompletato)
             {
                 paninoPrep[3] = true;
                 visualizzaPaninoGrafica();
@@ -493,7 +499,7 @@ namespace CheeseChase
         }
         private void pbPilaFormaggio_Click(object sender, EventArgs e)
         {
-            if (paninoAperto)
+            if (paninoAperto && !paninoCompletato)
             {
                 paninoPrep[1] = true;
                 visualizzaPaninoGrafica();
@@ -667,7 +673,7 @@ namespace CheeseChase
             }
         }
 
-        /*private void timerPolizia_Tick(object sender, EventArgs e)
+        private void timerPolizia_Tick(object sender, EventArgs e)
         {
             //760 è la x a cui deve arrivare la macchina, altrimenti continua a muoversi entrando qua dentro
             if (timerPoliziaMacchina < 760)
@@ -698,7 +704,7 @@ namespace CheeseChase
         {
             timerPolizia.Start();
             pbMacchinaPolizia.Show();
-        }*/
+        }
     }
 }          
 

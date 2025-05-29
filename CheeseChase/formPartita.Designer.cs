@@ -445,7 +445,7 @@
             // pbPoliziaCounter
             // 
             this.pbPoliziaCounter.BackColor = System.Drawing.Color.Red;
-            this.pbPoliziaCounter.Location = new System.Drawing.Point(528, 457);
+            this.pbPoliziaCounter.Location = new System.Drawing.Point(541, 464);
             this.pbPoliziaCounter.Name = "pbPoliziaCounter";
             this.pbPoliziaCounter.Size = new System.Drawing.Size(200, 32);
             this.pbPoliziaCounter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -457,12 +457,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1526, 917);
             this.Controls.Add(this.pbPoliziaCounter);
             this.Controls.Add(this.pbCustomMessageBox);
             this.Controls.Add(this.pbPoliziotto);
-            this.Controls.Add(this.pbMacchinaPolizia);
             this.Controls.Add(this.lblSoldi);
             this.Controls.Add(this.lblSoldiS);
             this.Controls.Add(this.pbReq2);
@@ -489,8 +490,13 @@
             this.Controls.Add(this.lblMenu2);
             this.Controls.Add(this.lblMenu1);
             this.Controls.Add(this.pbCarneCruda);
+            this.Controls.Add(this.pbMacchinaPolizia);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1542, 956);
+            this.MinimumSize = new System.Drawing.Size(1542, 956);
             this.Name = "formPartita";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheesChase";
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarneCruda)).EndInit();

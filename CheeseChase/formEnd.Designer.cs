@@ -39,7 +39,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
-            this.pictureBox1.Location = new System.Drawing.Point(902, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(1329, 218);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(407, 618);
             this.pictureBox1.TabIndex = 0;
@@ -51,7 +51,7 @@
             this.lblMessaggio.BackColor = System.Drawing.Color.Transparent;
             this.lblMessaggio.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessaggio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMessaggio.Location = new System.Drawing.Point(479, 246);
+            this.lblMessaggio.Location = new System.Drawing.Point(728, 420);
             this.lblMessaggio.Name = "lblMessaggio";
             this.lblMessaggio.Size = new System.Drawing.Size(417, 76);
             this.lblMessaggio.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
-            this.pictureBox2.Location = new System.Drawing.Point(44, 44);
+            this.pictureBox2.Location = new System.Drawing.Point(200, 218);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(407, 618);
             this.pictureBox2.TabIndex = 2;
