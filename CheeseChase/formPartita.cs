@@ -86,7 +86,7 @@ namespace CheeseChase
             pbPaninoCorrente.Hide();
             pbPaninoCorrenteSopra.Hide();
 
-            //arrivoPoliziaSmooth(); //per test
+            arrivoPoliziaSmooth(); //per test
 
             //nascondo i clienti 
             pbCliente1.Hide();
@@ -508,7 +508,7 @@ namespace CheeseChase
 
         private void pbCarneCotta1_Click(object sender, EventArgs e)
         {
-            if (paninoAperto && !paninoCompletato)
+            if (paninoAperto && !paninoCompletato && !paninoPrep[0])
             {
                 paninoPrep[0] = true;
                 visualizzaPaninoGrafica();
@@ -522,7 +522,7 @@ namespace CheeseChase
         }
         private void pbCarneCotta2_Click(object sender, EventArgs e)
         {
-            if (paninoAperto && !paninoCompletato)
+            if (paninoAperto && !paninoCompletato && !paninoPrep[0])
             {
                 paninoPrep[0] = true;
                 visualizzaPaninoGrafica();
@@ -537,7 +537,7 @@ namespace CheeseChase
         }
         private void pbCarneCotta3_Click(object sender, EventArgs e)
         {
-            if (paninoAperto && !paninoCompletato)
+            if (paninoAperto && !paninoCompletato && !paninoPrep[0])
             {
                 paninoPrep[0] = true;
                 visualizzaPaninoGrafica();
@@ -684,19 +684,24 @@ namespace CheeseChase
             }
             else
             {
-                if (!pbPoliziaCounter.Visible)
+                if (serrandaAperta && clienteAttivo == 0)
                 {
-                    //se la macchina è arrivata facccio apparire anche lo sbirro
-                    pbPoliziotto.Show();
-                    //avvio la dinamica della polizia con un aggiornamento progressivo della barra del poliziotto
-                    pbPoliziaCounter.Show();
+                    if (!pbPoliziaCounter.Visible)
+                    {
+                        //se la macchina è arrivata facccio apparire anche lo sbirro
+                        pbPoliziotto.Show();
+                        //avvio la dinamica della polizia con un aggiornamento progressivo della barra del poliziotto
+                        pbPoliziaCounter.Show();
+                        pbPoliziaCounter.BringToFront();
+                    }
                 }
+
                 //riempo progressivamente la progressbar e controllo lo stato della serranda, se è aperta continuo
                 
 
                 //DA FINIRE STA PARTE CHE SI E SMINKIATO TUTTO
 
-                pbPoliziaCounter.Width -= contatoreProgressbar;
+                pbPoliziaCounter.Width -= Convert.ToInt32(contatoreProgressbar*0.001);
                 contatoreProgressbar += 20;
             }
         }
