@@ -50,7 +50,6 @@ namespace CheeseChase
         bool paninoCompletato = false;
         //variabile per lo spostamento pulito della policecar (contiene la sua x)
         int timerPoliziaMacchina = 144;
-        int contatoreProgressbar = 200;
 
         //array delle fette di carne 
         bool[] carne = new bool[3];
@@ -85,8 +84,6 @@ namespace CheeseChase
 
             pbPaninoCorrente.Hide();
             pbPaninoCorrenteSopra.Hide();
-
-            arrivoPoliziaSmooth(); //per test
 
             //nascondo i clienti 
             pbCliente1.Hide();
@@ -237,73 +234,87 @@ namespace CheeseChase
         //timer che ticka ogni 1000ms
         private void scandisciSecondi_Tick(object sender, EventArgs e)
         {
-            if (serrandaAperta)
+            //controlla che la serranda sia aperta e che non ci sia la polizia
+            if (serrandaAperta && !pbMacchinaPolizia.Visible)
             {
                 //incrementa il contatore dei secondi
                 secondi++; 
                 //eventualmente fa arrivare un cliente
                 if (secondi % 5 == 0)
                 {
-                    Random R = new Random();
-                    int numeroCasualePerGenerareCliente = R.Next(1, 99999);
-                    
-                    //variabile aggiornata con l'enum solo se passa il controllo
-                    clienteAttivo = 0;
+                    Random R = new Random(secondi);
 
-                    //se è un numero pari e non c'è nessun cliente mostro il 1, altrimenti il 2
-                    if (statoCliente1 == statoCliente.INVISIBIE && statoCliente2 == statoCliente.INVISIBIE)
+                    //forse faccio apparire la polizia 
+                    int numeroCasualePerGenerarePolizia = R.Next(1, 99999);
+                    if (numeroCasualePerGenerarePolizia % 10 == 0 || numeroCasualePerGenerarePolizia % 5 == 0)
                     {
-                        if (numeroCasualePerGenerareCliente % 2 == 0)
+                        arrivoPoliziaSmooth();                        
+                    }
+
+                    if (!pbMacchinaPolizia.Visible)
+                    {
+                        int numeroCasualePerGenerareCliente = R.Next(1, 99999);
+
+                        //variabile aggiornata con l'enum solo se passa il controllo
+                        clienteAttivo = 0;
+
+                        //se è un numero pari e non c'è nessun cliente mostro il 1, altrimenti il 2
+                        if (statoCliente1 == statoCliente.INVISIBIE && statoCliente2 == statoCliente.INVISIBIE)
                         {
-                            statoCliente1 = statoCliente.ATTIVO;
-                            clienteAttivo = 1;
-                            pbCliente1.Show();
-                            generaOrdine();
+                            if (numeroCasualePerGenerareCliente % 2 == 0)
+                            {
+                                statoCliente1 = statoCliente.ATTIVO;
+                                clienteAttivo = 1;
+                                pbCliente1.Show();
+                                generaOrdine();
+                            }
+                            else
+                            {
+                                statoCliente2 = statoCliente.ATTIVO;
+                                clienteAttivo = 2;
+                                pbCliente2.Show();
+                                generaOrdine();
+                            }
                         }
-                        else
+                    }
+
+                    if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
+                    {
+                        //aumenta i secondi e controlla se è arrabbiato o se ne va
+                        secondiCliente1++;
+                        if (secondiCliente1 >= 10 && statoCliente1 == statoCliente.ATTIVO)
                         {
-                            statoCliente2 = statoCliente.ATTIVO;
-                            clienteAttivo = 2;
-                            pbCliente2.Show();
-                            generaOrdine();
+                            //braca si arrabbia
+                            statoCliente1 = statoCliente.ARRABBIATO;
+                            pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaArrabbiato;
                         }
-                    }
-                }
+                        if (secondiCliente1 >= 15 && statoCliente1 == statoCliente.ARRABBIATO)
+                        {
+                            //braca si incazza tantissimo
+                            pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
+                        }
+                        if (secondiCliente1 == 30)
+                        {
+                            clientiVannoVia();
+                            diminuisciVite();
+                        }
 
-                if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
-                {
-                    //aumenta i secondi e controlla se è arrabbiato o se ne va
-                    secondiCliente1++;
-                    if (secondiCliente1 >= 10 && statoCliente1 == statoCliente.ATTIVO)
-                    {
-                        //braca si arrabbia
-                        statoCliente1 = statoCliente.ARRABBIATO;
-                        pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaArrabbiato;
-                    }
-                    if (secondiCliente1 >= 15 && statoCliente1 == statoCliente.ARRABBIATO)
-                    {
-                        //braca si incazza tantissimo
-                        pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
-                    }
-                    if (secondiCliente1 == 30) {
-                        clientiVannoVia();
-                        diminuisciVite();
                     }
 
-                }
-
-                if (statoCliente2 == statoCliente.ATTIVO)
-                {
-                    //aumenta i secondi e controlla se è arrabbiato o se ne va
-                    secondiCliente2++;
-                    if (secondiCliente2 == 15)
+                    if (statoCliente2 == statoCliente.ATTIVO)
                     {
-                        statoCliente2 = statoCliente.ARRABBIATO;
-                        pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
-                    }
-                    if (secondiCliente2 == 30) {
-                        clientiVannoVia();
-                        diminuisciVite();
+                        //aumenta i secondi e controlla se è arrabbiato o se ne va
+                        secondiCliente2++;
+                        if (secondiCliente2 == 15)
+                        {
+                            statoCliente2 = statoCliente.ARRABBIATO;
+                            pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
+                        }
+                        if (secondiCliente2 == 30)
+                        {
+                            clientiVannoVia();
+                            diminuisciVite();
+                        }
                     }
                 }
             }
@@ -453,6 +464,9 @@ namespace CheeseChase
             secondiCliente1 = 0;
             secondiCliente2 = 0;
 
+            //aggiorno variabile del cliente attivo a 0 visto che nessuno è attivo
+            clienteAttivo = 0;
+
             //ritorniamo i clienti tranquilli (verbo coniato al sud)
             pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Tranquillo;
             pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaTranquillo;
@@ -467,6 +481,11 @@ namespace CheeseChase
                 //metto la pic della serranda chiusa
                 this.BackgroundImage = Properties.Resources.gioco_serrandaChiusa;
                 clientiVannoVia(); 
+                //e se c'è la polizia la manda via (evasione fiscale)
+                if (pbMacchinaPolizia.Visible)
+                {
+                    poliziaVaVia();
+                }
             }
             else
             {
@@ -675,36 +694,63 @@ namespace CheeseChase
 
         private void timerPolizia_Tick(object sender, EventArgs e)
         {
-            //760 è la x a cui deve arrivare la macchina, altrimenti continua a muoversi entrando qua dentro
+            //controllo se la macchina della polizia ha ancora strada da percorrere (ovvero se sta alla posizione x < 760)
             if (timerPoliziaMacchina < 760)
             {
-                //aggiorna posizione e timer della macchina
+                //sposto la macchina della polizia verso destra 
                 pbMacchinaPolizia.Location = new Point(timerPoliziaMacchina, 219);
-                timerPoliziaMacchina += 10;
+
+                //avanzo di 10pixel ogni tick rendendo il movimento "smooth" (tra virgolette perchè nelle winform c'è davvero poco di smooth)
+                timerPoliziaMacchina += 40;
             }
             else
             {
+                //quando la macchina ha raggiunto o superato la posizione 760, scende lo sbirro dall'auto
+                clientiVannoVia(); // I clienti presenti nella scena vengono rimossi o fanno le animazioni per andarsene
+
+                //se la serranda è aperta e non ci sono clienti attivi
                 if (serrandaAperta && clienteAttivo == 0)
                 {
-                    if (!pbPoliziaCounter.Visible)
+                    //se il poliziotto non è ancora visibile, lo mostriamo insieme alla barra
+                    if (!pbPoliziotto.Visible)
                     {
-                        //se la macchina è arrivata facccio apparire anche lo sbirro
-                        pbPoliziotto.Show();
-                        //avvio la dinamica della polizia con un aggiornamento progressivo della barra del poliziotto
+                        pbPoliziotto.Show();              
                         pbPoliziaCounter.Show();
-                        pbPoliziaCounter.BringToFront();
+                        //porto la barra in primo piano rispetto agli altri elementi grafici
+                        pbPoliziaCounter.BringToFront();  
+                    }
+
+                    //diminuisco progressivamente la barra del poliziotto
+                    if (pbPoliziaCounter.Width > 0)
+                    {
+                        pbPoliziaCounter.Width -= 10; 
+                    }
+                    else
+                    {
+                        //se la barra è arrivata a 0 o meno, significa che il tempo è scaduto e il poliziotto te le suona
+                        timerPolizia.Stop();
+                        terminaPartita();
                     }
                 }
-
-                //riempo progressivamente la progressbar e controllo lo stato della serranda, se è aperta continuo
-                
-
-                //DA FINIRE STA PARTE CHE SI E SMINKIATO TUTTO
-
-                pbPoliziaCounter.Width -= Convert.ToInt32(contatoreProgressbar*0.001);
-                contatoreProgressbar += 20;
             }
         }
+
+        private void poliziaVaVia()
+        {
+            //nascondo le grafiche della polizia e resetto la progressbar
+            pbMacchinaPolizia.Hide();
+            pbPoliziaCounter.Hide();
+            pbPoliziotto.Hide();
+            pbPoliziaCounter.Width = 200;
+            //stoppo il timer dedicato
+            timerPolizia.Stop();
+            //resetto il timer al suo valore iniziale
+            timerPoliziaMacchina = 144;
+            //ri metto la macchina dove stava
+            pbMacchinaPolizia.Location = new Point(timerPoliziaMacchina, 219);
+        }
+
+
         private void arrivoPoliziaSmooth()
         {
             timerPolizia.Start();
@@ -712,4 +758,3 @@ namespace CheeseChase
         }
     }
 }          
-
