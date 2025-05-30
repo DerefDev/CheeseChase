@@ -753,6 +753,7 @@ namespace CheeseChase
 
         private void arrivoPoliziaSmooth()
         {
+            clientiVannoVia();
             timerPolizia.Start();
             pbMacchinaPolizia.Show();
         }
