@@ -12,9 +12,16 @@ namespace CheeseChase
 {
     public partial class formEnd : Form
     {
-        public formEnd()
+        string soldiE;
+        string secondiE;
+        public formEnd(int secondi, int soldi)
         {
             InitializeComponent();
+            soldiE = soldi.ToString();
+            secondiE = secondi.ToString();
+
+            lblSoldi.Text = soldiE;
+            lblSecondi.Text = secondiE;
         }
     }
 }

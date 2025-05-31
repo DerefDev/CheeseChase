@@ -93,9 +93,10 @@
             this.lblMenu1.BackColor = System.Drawing.Color.Transparent;
             this.lblMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu1.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMenu1.Location = new System.Drawing.Point(116, 26);
+            this.lblMenu1.Location = new System.Drawing.Point(155, 32);
+            this.lblMenu1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMenu1.Name = "lblMenu1";
-            this.lblMenu1.Size = new System.Drawing.Size(69, 31);
+            this.lblMenu1.Size = new System.Drawing.Size(85, 39);
             this.lblMenu1.TabIndex = 1;
             this.lblMenu1.Text = "Vite:";
             // 
@@ -105,9 +106,10 @@
             this.lblMenu2.BackColor = System.Drawing.Color.Transparent;
             this.lblMenu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu2.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMenu2.Location = new System.Drawing.Point(315, 26);
+            this.lblMenu2.Location = new System.Drawing.Point(420, 32);
+            this.lblMenu2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMenu2.Name = "lblMenu2";
-            this.lblMenu2.Size = new System.Drawing.Size(250, 31);
+            this.lblMenu2.Size = new System.Drawing.Size(311, 39);
             this.lblMenu2.TabIndex = 2;
             this.lblMenu2.Text = "Carretto abusivo di:";
             // 
@@ -117,9 +119,10 @@
             this.lblNome.BackColor = System.Drawing.Color.Transparent;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNome.Location = new System.Drawing.Point(559, 26);
+            this.lblNome.Location = new System.Drawing.Point(745, 32);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(81, 31);
+            this.lblNome.Size = new System.Drawing.Size(102, 39);
             this.lblNome.TabIndex = 3;
             this.lblNome.Text = "nome";
             // 
@@ -129,9 +132,10 @@
             this.lblVite.BackColor = System.Drawing.Color.Transparent;
             this.lblVite.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVite.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblVite.Location = new System.Drawing.Point(174, 26);
+            this.lblVite.Location = new System.Drawing.Point(232, 32);
+            this.lblVite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVite.Name = "lblVite";
-            this.lblVite.Size = new System.Drawing.Size(38, 31);
+            this.lblVite.Size = new System.Drawing.Size(47, 39);
             this.lblVite.TabIndex = 4;
             this.lblVite.Text = "-1";
             // 
@@ -139,9 +143,10 @@
             // 
             this.pbCliente1.BackColor = System.Drawing.Color.Transparent;
             this.pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaTranquillo;
-            this.pbCliente1.Location = new System.Drawing.Point(491, 196);
+            this.pbCliente1.Location = new System.Drawing.Point(655, 241);
+            this.pbCliente1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCliente1.Name = "pbCliente1";
-            this.pbCliente1.Size = new System.Drawing.Size(227, 262);
+            this.pbCliente1.Size = new System.Drawing.Size(303, 322);
             this.pbCliente1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCliente1.TabIndex = 5;
             this.pbCliente1.TabStop = false;
@@ -155,9 +160,10 @@
             // 
             this.pbCarneCruda.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCruda.Image = global::CheeseChase.Properties.Resources.pilaCarneCruda;
-            this.pbCarneCruda.Location = new System.Drawing.Point(760, 616);
+            this.pbCarneCruda.Location = new System.Drawing.Point(1013, 758);
+            this.pbCarneCruda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCruda.Name = "pbCarneCruda";
-            this.pbCarneCruda.Size = new System.Drawing.Size(126, 127);
+            this.pbCarneCruda.Size = new System.Drawing.Size(168, 156);
             this.pbCarneCruda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCruda.TabIndex = 7;
             this.pbCarneCruda.TabStop = false;
@@ -167,9 +173,10 @@
             // 
             this.pbPilaInsalata.BackColor = System.Drawing.Color.Transparent;
             this.pbPilaInsalata.Image = global::CheeseChase.Properties.Resources.pilaInsalata;
-            this.pbPilaInsalata.Location = new System.Drawing.Point(356, 603);
+            this.pbPilaInsalata.Location = new System.Drawing.Point(475, 742);
+            this.pbPilaInsalata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPilaInsalata.Name = "pbPilaInsalata";
-            this.pbPilaInsalata.Size = new System.Drawing.Size(131, 128);
+            this.pbPilaInsalata.Size = new System.Drawing.Size(175, 158);
             this.pbPilaInsalata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaInsalata.TabIndex = 8;
             this.pbPilaInsalata.TabStop = false;
@@ -179,9 +186,10 @@
             // 
             this.pbCarneCotta1.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCotta1.Image = global::CheeseChase.Properties.Resources.carneCotta;
-            this.pbCarneCotta1.Location = new System.Drawing.Point(1001, 578);
+            this.pbCarneCotta1.Location = new System.Drawing.Point(1335, 711);
+            this.pbCarneCotta1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCotta1.Name = "pbCarneCotta1";
-            this.pbCarneCotta1.Size = new System.Drawing.Size(77, 66);
+            this.pbCarneCotta1.Size = new System.Drawing.Size(103, 81);
             this.pbCarneCotta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCotta1.TabIndex = 11;
             this.pbCarneCotta1.TabStop = false;
@@ -191,9 +199,10 @@
             // 
             this.pbCarneCotta2.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCotta2.Image = global::CheeseChase.Properties.Resources.carneCotta;
-            this.pbCarneCotta2.Location = new System.Drawing.Point(1110, 578);
+            this.pbCarneCotta2.Location = new System.Drawing.Point(1480, 711);
+            this.pbCarneCotta2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCotta2.Name = "pbCarneCotta2";
-            this.pbCarneCotta2.Size = new System.Drawing.Size(77, 66);
+            this.pbCarneCotta2.Size = new System.Drawing.Size(103, 81);
             this.pbCarneCotta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCotta2.TabIndex = 13;
             this.pbCarneCotta2.TabStop = false;
@@ -203,9 +212,10 @@
             // 
             this.pbCarneCotta3.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCotta3.Image = global::CheeseChase.Properties.Resources.carneCotta;
-            this.pbCarneCotta3.Location = new System.Drawing.Point(1226, 578);
+            this.pbCarneCotta3.Location = new System.Drawing.Point(1635, 711);
+            this.pbCarneCotta3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCotta3.Name = "pbCarneCotta3";
-            this.pbCarneCotta3.Size = new System.Drawing.Size(77, 66);
+            this.pbCarneCotta3.Size = new System.Drawing.Size(103, 81);
             this.pbCarneCotta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCotta3.TabIndex = 14;
             this.pbCarneCotta3.TabStop = false;
@@ -215,9 +225,10 @@
             // 
             this.pbCarneCrudaGriglia1.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCrudaGriglia1.Image = global::CheeseChase.Properties.Resources.carneCruda;
-            this.pbCarneCrudaGriglia1.Location = new System.Drawing.Point(999, 577);
+            this.pbCarneCrudaGriglia1.Location = new System.Drawing.Point(1332, 710);
+            this.pbCarneCrudaGriglia1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCrudaGriglia1.Name = "pbCarneCrudaGriglia1";
-            this.pbCarneCrudaGriglia1.Size = new System.Drawing.Size(78, 65);
+            this.pbCarneCrudaGriglia1.Size = new System.Drawing.Size(104, 80);
             this.pbCarneCrudaGriglia1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCrudaGriglia1.TabIndex = 31;
             this.pbCarneCrudaGriglia1.TabStop = false;
@@ -226,9 +237,10 @@
             // 
             this.pbCarneCrudaGriglia2.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCrudaGriglia2.Image = global::CheeseChase.Properties.Resources.carneCruda;
-            this.pbCarneCrudaGriglia2.Location = new System.Drawing.Point(1110, 579);
+            this.pbCarneCrudaGriglia2.Location = new System.Drawing.Point(1480, 713);
+            this.pbCarneCrudaGriglia2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCrudaGriglia2.Name = "pbCarneCrudaGriglia2";
-            this.pbCarneCrudaGriglia2.Size = new System.Drawing.Size(78, 65);
+            this.pbCarneCrudaGriglia2.Size = new System.Drawing.Size(104, 80);
             this.pbCarneCrudaGriglia2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCrudaGriglia2.TabIndex = 32;
             this.pbCarneCrudaGriglia2.TabStop = false;
@@ -237,9 +249,10 @@
             // 
             this.pbCarneCrudaGriglia3.BackColor = System.Drawing.Color.Transparent;
             this.pbCarneCrudaGriglia3.Image = global::CheeseChase.Properties.Resources.carneCruda;
-            this.pbCarneCrudaGriglia3.Location = new System.Drawing.Point(1226, 579);
+            this.pbCarneCrudaGriglia3.Location = new System.Drawing.Point(1635, 713);
+            this.pbCarneCrudaGriglia3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCarneCrudaGriglia3.Name = "pbCarneCrudaGriglia3";
-            this.pbCarneCrudaGriglia3.Size = new System.Drawing.Size(78, 65);
+            this.pbCarneCrudaGriglia3.Size = new System.Drawing.Size(104, 80);
             this.pbCarneCrudaGriglia3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCarneCrudaGriglia3.TabIndex = 33;
             this.pbCarneCrudaGriglia3.TabStop = false;
@@ -248,9 +261,10 @@
             // 
             this.pbPilaFormaggio.BackColor = System.Drawing.Color.Transparent;
             this.pbPilaFormaggio.Image = global::CheeseChase.Properties.Resources.pilaFormaggio;
-            this.pbPilaFormaggio.Location = new System.Drawing.Point(554, 616);
+            this.pbPilaFormaggio.Location = new System.Drawing.Point(739, 758);
+            this.pbPilaFormaggio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPilaFormaggio.Name = "pbPilaFormaggio";
-            this.pbPilaFormaggio.Size = new System.Drawing.Size(147, 115);
+            this.pbPilaFormaggio.Size = new System.Drawing.Size(196, 142);
             this.pbPilaFormaggio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaFormaggio.TabIndex = 34;
             this.pbPilaFormaggio.TabStop = false;
@@ -260,9 +274,10 @@
             // 
             this.pbPilaPomodoro.BackColor = System.Drawing.Color.Transparent;
             this.pbPilaPomodoro.Image = global::CheeseChase.Properties.Resources.pilaPomodoro_1_;
-            this.pbPilaPomodoro.Location = new System.Drawing.Point(111, 615);
+            this.pbPilaPomodoro.Location = new System.Drawing.Point(148, 757);
+            this.pbPilaPomodoro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPilaPomodoro.Name = "pbPilaPomodoro";
-            this.pbPilaPomodoro.Size = new System.Drawing.Size(172, 128);
+            this.pbPilaPomodoro.Size = new System.Drawing.Size(229, 158);
             this.pbPilaPomodoro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaPomodoro.TabIndex = 35;
             this.pbPilaPomodoro.TabStop = false;
@@ -272,9 +287,10 @@
             // 
             this.pbPilaPane.BackColor = System.Drawing.Color.Transparent;
             this.pbPilaPane.Image = global::CheeseChase.Properties.Resources.pilaPane;
-            this.pbPilaPane.Location = new System.Drawing.Point(-17, 427);
+            this.pbPilaPane.Location = new System.Drawing.Point(-23, 526);
+            this.pbPilaPane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPilaPane.Name = "pbPilaPane";
-            this.pbPilaPane.Size = new System.Drawing.Size(155, 119);
+            this.pbPilaPane.Size = new System.Drawing.Size(207, 146);
             this.pbPilaPane.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPilaPane.TabIndex = 36;
             this.pbPilaPane.TabStop = false;
@@ -284,9 +300,10 @@
             // 
             this.pbBottoneSerranda.BackColor = System.Drawing.Color.Transparent;
             this.pbBottoneSerranda.Image = global::CheeseChase.Properties.Resources.bottoneSerranda;
-            this.pbBottoneSerranda.Location = new System.Drawing.Point(1344, 267);
+            this.pbBottoneSerranda.Location = new System.Drawing.Point(1792, 329);
+            this.pbBottoneSerranda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbBottoneSerranda.Name = "pbBottoneSerranda";
-            this.pbBottoneSerranda.Size = new System.Drawing.Size(101, 89);
+            this.pbBottoneSerranda.Size = new System.Drawing.Size(135, 110);
             this.pbBottoneSerranda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbBottoneSerranda.TabIndex = 37;
             this.pbBottoneSerranda.TabStop = false;
@@ -298,9 +315,10 @@
             this.lblPaninoCorrente1.BackColor = System.Drawing.Color.Transparent;
             this.lblPaninoCorrente1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaninoCorrente1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPaninoCorrente1.Location = new System.Drawing.Point(247, 495);
+            this.lblPaninoCorrente1.Location = new System.Drawing.Point(329, 609);
+            this.lblPaninoCorrente1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPaninoCorrente1.Name = "lblPaninoCorrente1";
-            this.lblPaninoCorrente1.Size = new System.Drawing.Size(170, 26);
+            this.lblPaninoCorrente1.Size = new System.Drawing.Size(211, 31);
             this.lblPaninoCorrente1.TabIndex = 57;
             this.lblPaninoCorrente1.Text = "Panino Corrente";
             // 
@@ -308,9 +326,10 @@
             // 
             this.pbCliente2.BackColor = System.Drawing.Color.Transparent;
             this.pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Tranquillo;
-            this.pbCliente2.Location = new System.Drawing.Point(784, 196);
+            this.pbCliente2.Location = new System.Drawing.Point(1045, 241);
+            this.pbCliente2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCliente2.Name = "pbCliente2";
-            this.pbCliente2.Size = new System.Drawing.Size(227, 262);
+            this.pbCliente2.Size = new System.Drawing.Size(303, 322);
             this.pbCliente2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCliente2.TabIndex = 58;
             this.pbCliente2.TabStop = false;
@@ -319,9 +338,10 @@
             // 
             this.pbPaninoCorrente.BackColor = System.Drawing.Color.Transparent;
             this.pbPaninoCorrente.Image = global::CheeseChase.Properties.Resources.SottoPane;
-            this.pbPaninoCorrente.Location = new System.Drawing.Point(206, 427);
+            this.pbPaninoCorrente.Location = new System.Drawing.Point(275, 526);
+            this.pbPaninoCorrente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPaninoCorrente.Name = "pbPaninoCorrente";
-            this.pbPaninoCorrente.Size = new System.Drawing.Size(131, 65);
+            this.pbPaninoCorrente.Size = new System.Drawing.Size(175, 80);
             this.pbPaninoCorrente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPaninoCorrente.TabIndex = 59;
             this.pbPaninoCorrente.TabStop = false;
@@ -331,9 +351,10 @@
             // 
             this.pbPaninoCorrenteSopra.BackColor = System.Drawing.Color.Transparent;
             this.pbPaninoCorrenteSopra.Image = global::CheeseChase.Properties.Resources.SopraPane;
-            this.pbPaninoCorrenteSopra.Location = new System.Drawing.Point(340, 427);
+            this.pbPaninoCorrenteSopra.Location = new System.Drawing.Point(453, 526);
+            this.pbPaninoCorrenteSopra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPaninoCorrenteSopra.Name = "pbPaninoCorrenteSopra";
-            this.pbPaninoCorrenteSopra.Size = new System.Drawing.Size(131, 65);
+            this.pbPaninoCorrenteSopra.Size = new System.Drawing.Size(175, 80);
             this.pbPaninoCorrenteSopra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPaninoCorrenteSopra.TabIndex = 60;
             this.pbPaninoCorrenteSopra.TabStop = false;
@@ -343,9 +364,10 @@
             // 
             this.pbCestino.BackColor = System.Drawing.Color.Transparent;
             this.pbCestino.Image = global::CheeseChase.Properties.Resources.cestino;
-            this.pbCestino.Location = new System.Drawing.Point(-17, 820);
+            this.pbCestino.Location = new System.Drawing.Point(-23, 923);
+            this.pbCestino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCestino.Name = "pbCestino";
-            this.pbCestino.Size = new System.Drawing.Size(185, 169);
+            this.pbCestino.Size = new System.Drawing.Size(247, 208);
             this.pbCestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCestino.TabIndex = 62;
             this.pbCestino.TabStop = false;
@@ -358,9 +380,10 @@
             this.pbReq1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbReq1.Enabled = false;
             this.pbReq1.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
-            this.pbReq1.Location = new System.Drawing.Point(410, 141);
+            this.pbReq1.Location = new System.Drawing.Point(547, 174);
+            this.pbReq1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbReq1.Name = "pbReq1";
-            this.pbReq1.Size = new System.Drawing.Size(112, 119);
+            this.pbReq1.Size = new System.Drawing.Size(149, 146);
             this.pbReq1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbReq1.TabIndex = 63;
             this.pbReq1.TabStop = false;
@@ -372,9 +395,10 @@
             this.pbReq2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbReq2.Enabled = false;
             this.pbReq2.Image = global::CheeseChase.Properties.Resources.paninoReqFC;
-            this.pbReq2.Location = new System.Drawing.Point(724, 139);
+            this.pbReq2.Location = new System.Drawing.Point(965, 171);
+            this.pbReq2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbReq2.Name = "pbReq2";
-            this.pbReq2.Size = new System.Drawing.Size(112, 119);
+            this.pbReq2.Size = new System.Drawing.Size(149, 146);
             this.pbReq2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbReq2.TabIndex = 64;
             this.pbReq2.TabStop = false;
@@ -385,9 +409,10 @@
             this.lblSoldiS.BackColor = System.Drawing.Color.Transparent;
             this.lblSoldiS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoldiS.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSoldiS.Location = new System.Drawing.Point(761, 26);
+            this.lblSoldiS.Location = new System.Drawing.Point(1015, 32);
+            this.lblSoldiS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoldiS.Name = "lblSoldiS";
-            this.lblSoldiS.Size = new System.Drawing.Size(283, 31);
+            this.lblSoldiS.Size = new System.Drawing.Size(355, 39);
             this.lblSoldiS.TabIndex = 65;
             this.lblSoldiS.Text = "Denaro guadagnato: €";
             // 
@@ -397,9 +422,10 @@
             this.lblSoldi.BackColor = System.Drawing.Color.Transparent;
             this.lblSoldi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoldi.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSoldi.Location = new System.Drawing.Point(1038, 26);
+            this.lblSoldi.Location = new System.Drawing.Point(1384, 32);
+            this.lblSoldi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoldi.Name = "lblSoldi";
-            this.lblSoldi.Size = new System.Drawing.Size(29, 31);
+            this.lblSoldi.Size = new System.Drawing.Size(36, 39);
             this.lblSoldi.TabIndex = 66;
             this.lblSoldi.Text = "0";
             // 
@@ -407,9 +433,10 @@
             // 
             this.pbMacchinaPolizia.BackColor = System.Drawing.Color.Transparent;
             this.pbMacchinaPolizia.Image = global::CheeseChase.Properties.Resources.MacchinaPolizia;
-            this.pbMacchinaPolizia.Location = new System.Drawing.Point(144, 219);
+            this.pbMacchinaPolizia.Location = new System.Drawing.Point(192, 270);
+            this.pbMacchinaPolizia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbMacchinaPolizia.Name = "pbMacchinaPolizia";
-            this.pbMacchinaPolizia.Size = new System.Drawing.Size(483, 273);
+            this.pbMacchinaPolizia.Size = new System.Drawing.Size(644, 336);
             this.pbMacchinaPolizia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbMacchinaPolizia.TabIndex = 67;
             this.pbMacchinaPolizia.TabStop = false;
@@ -419,9 +446,10 @@
             // 
             this.pbPoliziotto.BackColor = System.Drawing.Color.Transparent;
             this.pbPoliziotto.Image = global::CheeseChase.Properties.Resources.Poliziotto;
-            this.pbPoliziotto.Location = new System.Drawing.Point(528, 155);
+            this.pbPoliziotto.Location = new System.Drawing.Point(704, 191);
+            this.pbPoliziotto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPoliziotto.Name = "pbPoliziotto";
-            this.pbPoliziotto.Size = new System.Drawing.Size(213, 303);
+            this.pbPoliziotto.Size = new System.Drawing.Size(284, 373);
             this.pbPoliziotto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPoliziotto.TabIndex = 68;
             this.pbPoliziotto.TabStop = false;
@@ -429,9 +457,10 @@
             // 
             // pbCustomMessageBox
             // 
-            this.pbCustomMessageBox.Location = new System.Drawing.Point(540, 495);
+            this.pbCustomMessageBox.Location = new System.Drawing.Point(720, 609);
+            this.pbCustomMessageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCustomMessageBox.Name = "pbCustomMessageBox";
-            this.pbCustomMessageBox.Size = new System.Drawing.Size(296, 107);
+            this.pbCustomMessageBox.Size = new System.Drawing.Size(395, 132);
             this.pbCustomMessageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCustomMessageBox.TabIndex = 69;
             this.pbCustomMessageBox.TabStop = false;
@@ -445,9 +474,10 @@
             // pbPoliziaCounter
             // 
             this.pbPoliziaCounter.BackColor = System.Drawing.Color.Red;
-            this.pbPoliziaCounter.Location = new System.Drawing.Point(541, 464);
+            this.pbPoliziaCounter.Location = new System.Drawing.Point(721, 571);
+            this.pbPoliziaCounter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPoliziaCounter.Name = "pbPoliziaCounter";
-            this.pbPoliziaCounter.Size = new System.Drawing.Size(200, 32);
+            this.pbPoliziaCounter.Size = new System.Drawing.Size(267, 39);
             this.pbPoliziaCounter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPoliziaCounter.TabIndex = 70;
             this.pbPoliziaCounter.TabStop = false;
@@ -455,12 +485,12 @@
             // 
             // formPartita
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1526, 917);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.pbPoliziaCounter);
             this.Controls.Add(this.pbCustomMessageBox);
             this.Controls.Add(this.pbPoliziotto);
@@ -492,9 +522,10 @@
             this.Controls.Add(this.pbCarneCruda);
             this.Controls.Add(this.pbMacchinaPolizia);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1542, 956);
-            this.MinimumSize = new System.Drawing.Size(1542, 956);
+            this.MaximumSize = new System.Drawing.Size(2050, 1166);
+            this.MinimumSize = new System.Drawing.Size(1918, 1078);
             this.Name = "formPartita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheesChase";
