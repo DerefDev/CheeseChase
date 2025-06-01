@@ -257,5 +257,17 @@
   <ItemGroup>
     <None Include="imgs\gioco\Panini\paninoReqIFCP.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\MBCarneFormaggio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\MBIngredientiSbagliati.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\GameOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\gioco\Regole.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

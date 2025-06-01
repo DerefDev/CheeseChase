@@ -173,6 +173,16 @@ namespace CheeseChase.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GameOver {
+            get {
+                object obj = ResourceManager.GetObject("GameOver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gioco_serrandaAperta {
             get {
                 object obj = ResourceManager.GetObject("gioco_serrandaAperta", resourceCulture);
@@ -216,6 +226,26 @@ namespace CheeseChase.Properties {
         internal static System.Drawing.Bitmap MacchinaPolizia {
             get {
                 object obj = ResourceManager.GetObject("MacchinaPolizia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MBCarneFormaggio {
+            get {
+                object obj = ResourceManager.GetObject("MBCarneFormaggio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MBIngredientiSbagliati {
+            get {
+                object obj = ResourceManager.GetObject("MBIngredientiSbagliati", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -556,6 +586,16 @@ namespace CheeseChase.Properties {
         internal static System.Drawing.Bitmap pupetto1_temp {
             get {
                 object obj = ResourceManager.GetObject("pupetto1_temp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Regole {
+            get {
+                object obj = ResourceManager.GetObject("Regole", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

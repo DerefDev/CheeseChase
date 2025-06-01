@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pupetto1_temp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco_temporanee\pupetto1_temp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paninoCompletoIFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoCompletoIFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MBCarneFormaggio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\MBCarneFormaggio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paninoIC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoIC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,17 +157,20 @@
   <data name="ClienteBracaFurioso" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Clienti\ClienteBracaFurioso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paninoP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pilaCarneCruda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\pilaCarneCruda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pilaPomodoro(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\pilaPomodoro(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pilaPomodoro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\pilaPomodoro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paninoReqFC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoReqFC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paninoFP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoFP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pilaCarneCruda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\pilaCarneCruda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SelezionaIngredienti" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\SelezionaIngredienti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,17 +187,14 @@
   <data name="gioco_serrandaChiusa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\gioco_serrandaChiusa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Clienti\Cliente1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MacchinaPolizia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Polizia\MacchinaPolizia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paninoC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ClienteBracaTranquillo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Clienti\ClienteBracaTranquillo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paninoIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoIF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paninoF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,17 +211,26 @@
   <data name="ClienteBracaArrabbiato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Clienti\ClienteBracaArrabbiato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paninoICP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoICP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pilaCarneCruda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\pilaCarneCruda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paninoP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paninoCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pupetto1_temp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco_temporanee\pupetto1_temp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MBIngredientiSbagliati" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\MBIngredientiSbagliati.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="carneCruda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\carneCruda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paninoReqIFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoReqIFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pilaInsalata" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\pilaInsalata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +253,14 @@
   <data name="gioco_serrandaAperta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\gioco_serrandaAperta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pilaPomodoro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\pilaPomodoro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paninoCompletoFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoCompletoFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paninoReqFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoReqFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Clienti\Cliente1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cliente2Tranquillo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Clienti\Cliente2Tranquillo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,31 +277,22 @@
   <data name="start_sfondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\menuStart\start_sfondo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MacchinaPolizia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Polizia\MacchinaPolizia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paninoReqIFC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoReqIFC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paninoIFP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\Panini\paninoIFP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paninoCompletoFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoCompletoFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paninoIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoIF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pilaCarneCruda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\pilaCarneCruda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paninoICP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Panini\paninoICP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SelezionaIngredienti1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imgs\gioco\SelezionaIngredienti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paninoReqFC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoReqFC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paninoReqFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoReqFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paninoReqIFC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoReqIFC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paninoReqIFCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imgs\gioco\Panini\paninoReqIFCP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Regole" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imgs\gioco\Regole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

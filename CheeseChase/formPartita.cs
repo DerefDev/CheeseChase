@@ -108,11 +108,22 @@ namespace CheeseChase
             switch (cmb)
             {
                 case 1:
-                    pbCustomMessageBox = this.pbCustomMessageBox; //esempio, poi mettici l'immagine vera
+                    pbCustomMessageBox.Image = global::CheeseChase.Properties.Resources.MBIngredientiSbagliati;
                     pbCustomMessageBox.Show();
-                    Thread.Sleep(waitTime);
+                    pbCustomMessageBox.Refresh(); // forza ridisegno
+                    Application.DoEvents();       // forza la gestione degli eventi della UI
+                    Thread.Sleep(waitTime);       // blocco il programma per far leggere il messaggio all'utente
                     pbCustomMessageBox.Hide();
                     break;
+                case 2:
+                    pbCustomMessageBox.Image = global::CheeseChase.Properties.Resources.MBCarneFormaggio;
+                    pbCustomMessageBox.Show();
+                    pbCustomMessageBox.Refresh(); // forza ridisegno
+                    Application.DoEvents();       // forza la gestione degli eventi della UI
+                    Thread.Sleep(waitTime);       // blocco il programma per far leggere il messaggio all'utente
+                    pbCustomMessageBox.Hide();
+                    break;
+
                 default:
                     break;
             }
@@ -281,13 +292,13 @@ namespace CheeseChase
 
                     if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
                     {
-                        MessageBox.Show(secondiCliente1.ToString()); //test
+                        //MessageBox.Show(secondiCliente1.ToString()); //test
                         //aumenta i secondi e controlla se è arrabbiato o se ne va
                         secondiCliente1++;
                         if (secondiCliente1 == 3 && statoCliente1 == statoCliente.ATTIVO)
                         {
                             //braca si arrabbia
-                            MessageBox.Show("arrabbiato"); //test
+                            //MessageBox.Show("arrabbiato"); //test
 
                             statoCliente1 = statoCliente.ARRABBIATO;
                             pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaArrabbiato;
@@ -295,7 +306,7 @@ namespace CheeseChase
                         if (secondiCliente1 == 7 && statoCliente1 == statoCliente.ARRABBIATO)
                         {
                             //braca si incazza tantissimo
-                            MessageBox.Show("incazzato"); //test
+                            //MessageBox.Show("incazzato"); //test
 
                             pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
                         }
@@ -307,15 +318,15 @@ namespace CheeseChase
 
                     }
 
-                    if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ATTIVO)
+                    if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
                     {
-                        MessageBox.Show(secondiCliente2.ToString()); //test
+                        //MessageBox.Show(secondiCliente2.ToString()); //test
 
                         //aumenta i secondi e controlla se è arrabbiato o se ne va
                         secondiCliente2++;
                         if (secondiCliente2 == 3)
                         {
-                            MessageBox.Show("arrabbiato"); //test
+                            //MessageBox.Show("arrabbiato"); //test
                             statoCliente2 = statoCliente.ARRABBIATO;
                             pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
                         }
@@ -411,7 +422,6 @@ namespace CheeseChase
                     //se trovo un ingrediente che non corrisponde vuoldire che il panino rpeparato è sbagliato e mando una mbox
                     if (paninoReq[i] != paninoPrep[i])
                     {
-                        MessageBox.Show("Ingredienti errati");
                         //se gli ingredienti non corrispondono, metto i controllo a falso ed esco dal for
                         controlloPaninoCorrispondente = false;
                         break;
@@ -446,6 +456,7 @@ namespace CheeseChase
                 else
                 {
                     //se ilpanino è sbagliato tolgo 1 vita
+                    mostraCustomMbox(1, 2000);
                     diminuisciVite();
                 }
             }
@@ -698,7 +709,8 @@ namespace CheeseChase
             }
             else
             {
-                MessageBox.Show("Inserire minimo carne e formaggio");
+                //MessageBox.Show("Inserire minimo carne e formaggio");
+                mostraCustomMbox(2, 2000);
             }
         }
 

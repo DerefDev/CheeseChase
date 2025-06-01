@@ -23,5 +23,10 @@ namespace CheeseChase
             lblSoldi.Text = soldiE;
             lblSecondi.Text = secondiE;
         }
+
+        private void s(object sender, EventArgs e)
+        {
+
+        }
     }
 }
