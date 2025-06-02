@@ -292,22 +292,17 @@ namespace CheeseChase
 
                     if (statoCliente1 == statoCliente.ATTIVO || statoCliente1 == statoCliente.ARRABBIATO)
                     {
-                        //MessageBox.Show(secondiCliente1.ToString()); //test
                         //aumenta i secondi e controlla se è arrabbiato o se ne va
                         secondiCliente1++;
                         if (secondiCliente1 == 3 && statoCliente1 == statoCliente.ATTIVO)
                         {
                             //braca si arrabbia
-                            //MessageBox.Show("arrabbiato"); //test
-
                             statoCliente1 = statoCliente.ARRABBIATO;
                             pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaArrabbiato;
                         }
                         if (secondiCliente1 == 7 && statoCliente1 == statoCliente.ARRABBIATO)
                         {
-                            //braca si incazza tantissimo
-                            //MessageBox.Show("incazzato"); //test
-
+                            //braca si arrabbia tantissimo
                             pbCliente1.Image = global::CheeseChase.Properties.Resources.ClienteBracaFurioso;
                         }
                         if (secondiCliente1 == 10)
@@ -320,13 +315,10 @@ namespace CheeseChase
 
                     if (statoCliente2 == statoCliente.ATTIVO || statoCliente2 == statoCliente.ARRABBIATO)
                     {
-                        //MessageBox.Show(secondiCliente2.ToString()); //test
-
                         //aumenta i secondi e controlla se è arrabbiato o se ne va
                         secondiCliente2++;
                         if (secondiCliente2 == 3)
                         {
-                            //MessageBox.Show("arrabbiato"); //test
                             statoCliente2 = statoCliente.ARRABBIATO;
                             pbCliente2.Image = global::CheeseChase.Properties.Resources.Cliente2Arrabbiato;
                         }
@@ -341,8 +333,7 @@ namespace CheeseChase
         }
 
         /*Metodo asincrono che gestisce l'aggiunta di carne cruda sulla griglia al clic del giocatore.
-          In bas
-          e al numero di pezzi già presenti, mostra la carne cruda in una delle tre posizioni disponibili.
+          In base al numero di pezzi già presenti, mostra la carne cruda in una delle tre posizioni disponibili.
           Dopo aver posizionato la carne, attende 5 secondi per simulare il tempo di cottura.
           La parola chiave "async" consente di eseguire operazioni asincrone, come "await Task.Delay",
           senza bloccare il thread principale (UI thread). In questo modo l'interfaccia utente rimane fluida e reattiva
@@ -455,7 +446,7 @@ namespace CheeseChase
                 }
                 else
                 {
-                    //se ilpanino è sbagliato tolgo 1 vita
+                    //se ilpanino è sbagliato tolgo 1 vita e lo indzo al giocatore con una mbox custom
                     mostraCustomMbox(1, 2000);
                     diminuisciVite();
                 }
@@ -555,10 +546,7 @@ namespace CheeseChase
                 pbCarneCotta1.Hide();
                 carne[0] = false;
             }
-            else
-            {
-                //MessageBox.Show("Apri prima il pane");
-            }
+
         }
         private void pbCarneCotta2_Click(object sender, EventArgs e)
         {
@@ -569,10 +557,7 @@ namespace CheeseChase
                 pbCarneCotta2.Hide();
                 carne[1] = false;
             }
-            else
-            {
-                //MessageBox.Show("Apri prima il pane");
-            }
+
 
         }
         private void pbCarneCotta3_Click(object sender, EventArgs e)
@@ -585,10 +570,7 @@ namespace CheeseChase
                 carne[2] = false;
               
             }
-            else
-            {
-                //MessageBox.Show("Apri prima il pane");
-            }
+
         }
 
         private void visualizzaPaninoGrafica()
@@ -709,7 +691,7 @@ namespace CheeseChase
             }
             else
             {
-                //MessageBox.Show("Inserire minimo carne e formaggio");
+                //Inserire minimo carne e formaggio
                 mostraCustomMbox(2, 2000);
             }
         }

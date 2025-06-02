@@ -330,9 +330,9 @@
             // 
             this.pbCestino.BackColor = System.Drawing.Color.Transparent;
             this.pbCestino.Image = global::CheeseChase.Properties.Resources.cestino;
-            this.pbCestino.Location = new System.Drawing.Point(-17, 750);
+            this.pbCestino.Location = new System.Drawing.Point(-9, 771);
             this.pbCestino.Name = "pbCestino";
-            this.pbCestino.Size = new System.Drawing.Size(185, 169);
+            this.pbCestino.Size = new System.Drawing.Size(167, 162);
             this.pbCestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCestino.TabIndex = 62;
             this.pbCestino.TabStop = false;
@@ -434,7 +434,7 @@
             // pbPoliziaCounter
             // 
             this.pbPoliziaCounter.BackColor = System.Drawing.Color.Red;
-            this.pbPoliziaCounter.Location = new System.Drawing.Point(541, 464);
+            this.pbPoliziaCounter.Location = new System.Drawing.Point(534, 464);
             this.pbPoliziaCounter.Name = "pbPoliziaCounter";
             this.pbPoliziaCounter.Size = new System.Drawing.Size(200, 32);
             this.pbPoliziaCounter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
